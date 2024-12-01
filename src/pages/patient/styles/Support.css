@@ -1,0 +1,19 @@
+.info h2 {
+    color: #4CAF50;
+    text-align: center;
+    font-size:50px;
+}
+.info p {
+    line-height: 1.6;
+    color: #555;
+}
+ i{
+ margin-right:10px;
+ 
+}
+.main-content_Support {
+	margin-top: -184px;  /* Compense la hauteur du header */
+	margin-left: 150px; /* Compense la largeur de la navbar */
+	padding: 20px;
+	
+  }

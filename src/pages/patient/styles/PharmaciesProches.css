@@ -1,0 +1,46 @@
+ /* Style général de la carte */
+ #map {
+    height: 500px;
+    /* Hauteur de la carte */
+    width: 100%;
+    /* Largeur de la carte */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.main-content_Pharmacies{
+    margin-top: 250px;  /* Compense la hauteur du header */
+	margin-left: 230px; /* Compense la largeur de la navbar */
+	padding: 20px;
+    width: 1000px;
+}
+.grid-container_Pharmacies {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-item_Pharmacies {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item_Pharmacies h4 {
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters select,
+.filters input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
+import Header from '../pages/patient/components/Header';
+import Navbar from '../pages/patient/components/NavBar';
 const PatientLayout = () => (
   <>
+    <Navbar />
     <Header />
-    <main>
+    <main >
       <Outlet /> 
     </main>
-    <Footer />
   </>
 );
 
 export default PatientLayout;
+
