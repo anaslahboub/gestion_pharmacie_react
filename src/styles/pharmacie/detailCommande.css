@@ -1,0 +1,31 @@
+.detail-commande-container {
+    margin: 20px auto;
+    max-width: 70%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .commande-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .commande-detail-image {
+    max-width: 70%;
+    max-height: 30%;
+    border-radius: 15px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  

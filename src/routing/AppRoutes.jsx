@@ -3,28 +3,22 @@ import { Routes, Route } from 'react-router-dom';
 
 // Layouts
 import PatientLayout from '../layouts/PatientLayout';
-// import AdminLayout from '../layouts/AdminLayout';
-// import PharmacieLayout from '../layouts/PharmacieLayout';
+import AdminLayout from '../layouts/AdminLayout';
+import PharmacieLayout from '../layouts/PharmacieLayout';
+import FormsLayout from '../layouts/FormsLayout';
 
-// Pages spécifiques
-
-import NouvelleOrdonnance from '../pages/patient/NouvelleOrdonnance';
-import PatientDashboard from '../pages/patient/Dashboard';
-import Ordonnances from '../pages/patient/Ordonnances';
-import Commandes from '../pages/patient/Commandes';
-import Profil from '../pages/patient/Profil'
-import Support from '../pages/patient/Support'
-import PharmaciesProches from '../pages/patient/PharmaciesProches'
-import DetailsOrdonnance from '../pages/patient/DetailsOrdonnance'
-import DetailsCommande from '../pages/patient/DetailsCommande'
-import CreateAccount from '../pages/patient/CreateAccount'
-// import AdminDashboard from '../pages/admin/Dashboard';
-// import PharmacieDashboard from '../pages/pharmacien/Dashboard';
+// Pages spécifiques pour chaque utilisateur
+import PharmacieDashboard from '../pages/pharmacie/dashbord_PHA';
 import Login from '../pages/Login';
-import Acceuil from '../pages/accueil';
-import ProtectedRoute from "./ProtectedRoute";
-
-
+import Accueil from '../pages/accueil';
+import Commande from '../pages/pharmacie/commande_PHA';
+import AddPharmacy from '../pages/pharmacie/addPharmacy';
+import DetailOrdonnance from '../pages/pharmacie/detailOrdannace';
+import Notification from '../pages/pharmacie/notification_PHA';
+import Ordonnonce from '../pages/pharmacie/ordonnonce_PHA';
+import Profile from '../pages/pharmacie/profile_PHA';
+import Login_PHA from '../pages/pharmacie/login_PHA';
+import DetailCommande from '../pages/pharmacie/detailCommande'
 
 const AppRoutes = () => {
     const isAuthenticated = !!localStorage.getItem("userToken"); // Exemple : vérifier si un token existe
