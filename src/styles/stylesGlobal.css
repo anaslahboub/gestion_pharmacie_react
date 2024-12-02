@@ -1,0 +1,91 @@
+/* Styles globaux */
+body {
+    font-family: 'Poppins', sans-serif; 
+    line-height: 1.8; 
+    font-size: 16px; 
+    color: #000000; 
+    margin: 0;
+    padding: 0;
+}
+main {
+    background-color: #f0f0f0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Police élégante pour les titres */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Titre principal */
+h1 {
+    font-size: 2.8em; /* Grande taille pour le titre principal */
+    color: #2c3e50; /* Couleur sombre */
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 30px;
+}
+
+/* Titres secondaires */
+h2 {
+    font-size: 2.25em;
+    color: #1abc9c; /* Couleur plus vibrante pour un contraste agréable */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Titres tertiaires */
+h3 {
+    font-size: 1.85em; /* Taille ajustée pour les sous-titres */
+    color: #34495e;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Titres plus petits */
+h4 {
+    font-size: 1.5em;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe */
+p {
+    font-size: 1rem; /* Taille de texte confortable */
+    line-height: 1.8; /* Hauteur de ligne pour une lecture facile */
+    color: #060505;
+    margin-bottom: 20px; /* Espacement entre les paragraphes */
+}
+
+/* Liens */
+a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+
+/* Responsivité */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em; /* Réduction de la taille des titres sur mobile */
+    }
+
+    h2 {
+        font-size: 1.85em;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+
+
+    /* Paragraphe */
+    p {
+        font-size: 1.1rem; /* Augmenter légèrement la taille de texte sur mobile */
+    }
+}
