@@ -8,8 +8,6 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .main-content_Profil {
-	margin-top: 60px;  /* Compense la hauteur du header */
-	margin-left: 240px; /* Compense la largeur de la navbar */
 	padding: 20px;
 	
   }
@@ -29,7 +27,7 @@ label {
 	display: block;
 }
 
-input {
+.input-profile {
 	width: 90%;
 	padding: 10px;
 	margin-bottom: 15px;

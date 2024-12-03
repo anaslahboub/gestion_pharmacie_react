@@ -50,6 +50,7 @@ const NouvelleOrdonnance = () => {
             accept="image/*"
             required
             onChange={handleFileChange}
+            className="input-new-ordonance"
           />
           {/* Informations supplémentaires */}
           <label htmlFor="commentaire">Commentaire (facultatif) :</label>

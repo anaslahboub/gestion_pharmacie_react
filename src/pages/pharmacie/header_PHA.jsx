@@ -32,10 +32,11 @@ function Header() {
               <Link className="nav-link" to="/pharmacie/notification">Notifications</Link>
               <Link className="nav-link" to="/pharmacie/profile">Profil</Link>
             </nav>
-            <div className="logout">
+           
+          </div>
+          <div className="logout">
               <Link to="/pharmacie/forms">Déconnexion</Link>
             </div>
-          </div>
         </div>
       </header>
     </div>

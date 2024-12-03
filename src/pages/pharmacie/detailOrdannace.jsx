@@ -73,7 +73,7 @@ function DetailOrdonnance() {
   }
 
   return (
-    <div className="card">
+    <div className="cardd">
       <h2 className="card-title">Détails de l'Ordonnance</h2>
       <div className="order-details">
         <img

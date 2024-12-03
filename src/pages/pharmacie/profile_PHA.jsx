@@ -44,7 +44,7 @@
               <h3 className="photo-profile">Photo Profile</h3>
               <img src={formData.photo} alt="Photo de la pharmacie" className="photo-display" />
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className='form-profile' onSubmit={handleSubmit}>
               <div className="info-group">
                 {/* Nom */}
                 <div className="form-group">

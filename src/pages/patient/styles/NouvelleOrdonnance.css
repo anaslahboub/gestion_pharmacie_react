@@ -8,8 +8,6 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .main-content_NouvelleOrdonnance {
-	margin-top: 60px;  /* Compense la hauteur du header */
-	margin-left: 240px; /* Compense la largeur de la navbar */
 	padding: 20px;
 	
   }
@@ -30,7 +28,7 @@ label {
 }
 
 select,
-input,
+.input-new-ordonance,
 textarea {
 	width: 100%;
 	padding: 10px;

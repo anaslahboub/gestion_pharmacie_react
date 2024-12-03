@@ -56,6 +56,7 @@ const Profil = () => {
             name="nom"
             value={formData.nom}
             onChange={handleChange}
+            className="input-profile"
           />
 
           <label htmlFor="prenom">Prénom :</label>
@@ -65,6 +66,7 @@ const Profil = () => {
             name="prenom"
             value={formData.prenom}
             onChange={handleChange}
+            className="input-profile"
           />
 
           <label htmlFor="tel">Téléphone :</label>
@@ -74,6 +76,7 @@ const Profil = () => {
             name="tel"
             value={formData.tel}
             onChange={handleChange}
+            className="input-profile"
           />
 
           <label htmlFor="email">Email :</label>
@@ -83,6 +86,7 @@ const Profil = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            className="input-profile"
           />
 
           <label htmlFor="adresse">Adresse :</label>
@@ -92,6 +96,7 @@ const Profil = () => {
             name="adresse"
             value={formData.adresse}
             onChange={handleChange}
+            className="input-profile"
           />
 
           <button id="button_Profil" type="submit">Modifier</button>

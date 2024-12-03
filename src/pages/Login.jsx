@@ -25,35 +25,47 @@ const Login = () => {
     };
 
     return (
-        <div className="form-container">
-            <h1>{titles[role] || "Connexion"}</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Adresse email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Mot de passe"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit" >Se connecter</button>
-            </form>
-            {/* Afficher le lien uniquement si le rôle n'est pas admin */}
-            {role !== "admin" && (
-                <div className="links">
-                    <p>
-                        Pas encore inscrit ?{" "}
-                        
-                        <a onClick={() => navigate(`/${role}/CreateAccount`)}>Créer un compte</a>
-                    </p>
+        <div className="auth-wrapper">
+            <div className="auth-box">
+                <div className="auth-form">
+                    <h1 className="auth-title">{titles[role] || "Connexion"}</h1>
+                    <form className="form-1" onSubmit={handleSubmit}>
+                        <input
+                            type="email"
+                            placeholder="Adresse email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="auth-input"
+                            required
+                        />
+                        <input
+                            type="password"
+                            placeholder="Mot de passe"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="auth-input"
+                            required
+                        />
+                        <button type="submit" className="auth-button">
+                            Se connecter
+                        </button>
+                    </form>
+                    {/* Afficher le lien uniquement si le rôle n'est pas admin */}
+                    {role !== "admin" && (
+                        <div className="auth-links">
+                            <p>
+                                Pas encore inscrit ?{" "}
+                                <a
+                                    className="auth-link"
+                                    onClick={() => navigate(`/${role}/CreateAccount`)}
+                                >
+                                    Créer un compte
+                                </a>
+                            </p>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
         </div>
     );
 };

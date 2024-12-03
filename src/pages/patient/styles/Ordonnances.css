@@ -3,7 +3,6 @@
 .ordonnance-card {
     width: 1000px;
 	background-color: #ffffff;
-	/* Fond blanc */
 	padding: 20px;
 	margin: 15px 0;
 	/* Espacement entre les cartes */
@@ -65,8 +64,6 @@
 .main-content_Ordonnance h1 {
 	font-size: 35px;
 	color: #34495e;
-	margin-bottom: 20px;
-    margin-top: 460px;
     text-align: center;
 }
 
@@ -112,8 +109,6 @@
 	background-color: #2980b9;
 }
 .main-content_Ordonnance {
-	margin-top: 60px;
-	margin-left: 240px;
 	padding: 20px;
 
 }

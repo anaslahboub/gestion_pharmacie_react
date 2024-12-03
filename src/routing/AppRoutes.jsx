@@ -3,9 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 
 // Layouts
 import PatientLayout from '../layouts/PatientLayout';
-import AdminLayout from '../layouts/AdminLayout';
+//import AdminLayout from '../layouts/AdminLayout';
 import PharmacieLayout from '../layouts/PharmacieLayout';
-import FormsLayout from '../layouts/FormsLayout';
+//import FormsLayout from '../layouts/FormsLayout';
 
 // Pages spécifiques pour chaque utilisateur
 import PharmacieDashboard from '../pages/pharmacie/dashbord_PHA';
@@ -20,13 +20,27 @@ import Profile from '../pages/pharmacie/profile_PHA';
 import Login_PHA from '../pages/pharmacie/login_PHA';
 import DetailCommande from '../pages/pharmacie/detailCommande'
 
+//marwan import :
+
+import NouvelleOrdonnance from '../pages/patient/NouvelleOrdonnance';
+import PatientDashboard from '../pages/patient/Dashboard';
+import Ordonnances from '../pages/patient/Ordonnances';
+import Commandes from '../pages/patient/Commandes';
+import Profil from '../pages/patient/Profil'
+import Support from '../pages/patient/Support'
+import PharmaciesProches from '../pages/patient/PharmaciesProches'
+import DetailsOrdonnance from '../pages/patient/DetailsOrdonnance'
+import DetailsCommande from '../pages/patient/DetailsCommande'
+import CreateAccount from '../pages/patient/CreateAccount'
+
 const AppRoutes = () => {
-    const isAuthenticated = !!localStorage.getItem("userToken"); // Exemple : vérifier si un token existe
+   
 
     return (
         <Routes>
             {/* Route principale */}
-            <Route path="/" element={<Acceuil />} />
+            <Route path="/" element={<Accueil />} />
+            
 
             {/* Routes de connexion */}
             <Route path="/:role/login" element={<Login />} />
@@ -69,9 +83,22 @@ const AppRoutes = () => {
             </Route> */}
 
             {/* Espace Pharmacien */}
-            {/* <Route path="/pharmacien" element={<PharmacieLayout />}>
-                <Route index element={<PharmacieDashboard />} />
-            </Route> */}
+           {/* Layout Pharmacie */}
+          <Route path="/pharmacie" element={<PharmacieLayout />}>
+              {/* Dashboard Pharmacie */}
+              <Route index element={<PharmacieDashboard />} />
+              <Route path="dashboard" element={<PharmacieDashboard />} />
+              {/* Routes spécifiques Pharmacie */}
+              <Route path="commande" element={<Commande />} />
+              <Route path="addPharmacy" element={<AddPharmacy />} />
+              <Route path="detailOrdonnance/:id" element={<DetailOrdonnance />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="ordonnonce" element={<Ordonnonce />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="forms" element={<Login_PHA />} />*
+              <Route path="detailCommande/:id" element={<DetailCommande />} />
+            
+          </Route>
         </Routes>
     );
 };
