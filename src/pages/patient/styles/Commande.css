@@ -1,0 +1,119 @@
+
+/* Style pour les cartes d'ordonnances */
+.commande-card {
+    width: 1000px;
+	background-color: #ffffff;
+	/* Fond blanc */
+	padding: 20px;
+	margin: 15px 0;
+	/* Espacement entre les cartes */
+	border-radius: 8px;
+	/* Coins arrondis */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	/* Ombre légère */
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Effet au survol de la carte */
+.commande-card:hover {
+	transform: translateY(-5px);
+	/* Légère élévation */
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+	/* Ombre plus marquée */
+}
+
+/* Titre de l'ordonnance */
+.commande-card h3 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #2c3e50;
+	/* Texte foncé */
+	margin-bottom: 10px;
+}
+
+/* Texte de la date et du statut */
+.commande-card p {
+	font-size: 14px;
+	color: #7f8c8d;
+	/* Texte gris */
+	margin: 5px 0;
+}
+
+/* Bouton dans la carte */
+.commande-card button {
+	background-color: #1abc9c;
+	/* Couleur primaire */
+	color: white;
+	/* Texte blanc */
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	/* Boutons arrondis */
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Effet au survol du bouton */
+.commande-card button:hover {
+	background-color: #16a085;
+	/* Couleur légèrement plus foncée */
+	transform: scale(1.05);
+	/* Agrandissement léger */
+}
+
+.main-content_Commandes h1 {
+	font-size: 35px;
+	color: #34495e;
+	margin-bottom: 20px;
+    margin-top: 640px;
+    text-align: center;
+}
+
+.commande-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 15px;
+	border-bottom: 1px solid #ecf0f1;
+}
+
+.commande-item:last-child {
+	border-bottom: none;
+}
+
+.commande-item:hover {
+	background-color: #f8f9fa;
+}
+
+.commande-title {
+	font-size: 16px;
+	font-weight: bold;
+	color: #2c3e50;
+}
+
+.commande-date {
+	font-size: 14px;
+	color: #7f8c8d;
+}
+
+/* Boutons spécifiques */
+.commande-actions button {
+	background-color: #3498db;
+	color: white;
+	padding: 8px 12px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.commande-actions button:hover {
+	background-color: #2980b9;
+}
+.main-content_Commandes {
+	margin-top: 60px;
+	margin-left: 240px;
+	padding: 20px;
+
+}

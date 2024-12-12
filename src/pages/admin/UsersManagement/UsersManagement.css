@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #2ecc71; /* Vert principal */
+    --primary-hover: #27ae60; /* Vert foncé pour hover */
+    --danger-color: #e74c3c; /* Rouge pour danger */
+    --danger-hover: #c0392b; /* Rouge foncé pour hover */
+    --background-light: #f9f9f9; /* Fond clair */
+    --background-dark: #ffffff; /* Fond blanc */
+    --text-dark: #2c3e50; /* Texte principal */
+    --text-light: white; /* Texte clair */
+  }
+  
+  /* Style global pour la page des utilisateurs */
+  .users-management {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .users-management h2 {
+    text-align: center;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  /* Bouton Ajouter un utilisateur */
+  .users-management .add-user {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .users-management .add-user:hover {
+    background-color: var(--primary-hover);
+  }
+  
+  /* Style pour la table */
+  .users-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .users-management th,
+  .users-management td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .users-management th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+  }
+  
+  .users-management tr:nth-child(odd) {
+    background-color: var(--background-light);
+  }
+  
+  .users-management tr:nth-child(even) {
+    background-color: var(--background-dark);
+  }
+  
+  /* Style pour les boutons */
+  .users-management .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text-light);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+  }
+  
+  .users-management .btn:hover {
+    background-color: var(--primary-hover);
+  }
+  
+  .users-management .btn-danger {
+    background-color: var(--danger-color);
+  }
+  
+  .users-management .btn-danger:hover {
+    background-color: var(--danger-hover);
+  }
+  

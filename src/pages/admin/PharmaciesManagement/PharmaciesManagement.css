@@ -1,0 +1,102 @@
+/* Reset de styles par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eef2f3;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Titre principal */
+  
+  h2 {
+    color: #4caf50;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  /* Table */
+ /* Table */
+/* Table */
+table {
+    width: 100%;
+    border-collapse: separate; /* Permet un espacement entre les cellules */
+    border-spacing: 0 15px; /* Ajoute de l'espace entre les rangées */
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 20px 25px; /* Ajout de marges intérieures plus grandes */
+    text-align: left;
+  }
+  
+  th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  td {
+    background-color: #f9fbe7; /* Couleur subtile pour différencier les cellules */
+    border: none; /* Supprime les bordures pour un style plus propre */
+    border-bottom: 2px solid #ddd; /* Ligne de séparation subtile */
+  }
+  
+  tr:hover td {
+    background-color: #e8f5e9; /* Couleur au survol */
+  }
+  
+
+  
+  /* Boutons */
+  .btn {
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: #66bb6a;
+    transform: translateY(-2px);
+  }
+  
+  /* Statut */
+  .status-active {
+    color: #388e3c;
+    font-weight: bold;
+  }
+  
+  .status-inactive {
+    color: #d32f2f;
+    font-weight: bold;
+  }
+  
+  /* Conteneur principal */
+  div {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

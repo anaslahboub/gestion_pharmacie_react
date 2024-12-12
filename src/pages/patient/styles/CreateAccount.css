@@ -1,0 +1,41 @@
+
+.container_CreateAccount {
+    margin-top: 100px;
+    width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.container_CreateAccount h1 {
+    margin-top: 3px;
+    text-align: center;
+    color: #333;
+}
+.container_CreateAccount form {
+    display: flex;
+    flex-direction: column;
+}
+.container_CreateAccount form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.container_CreateAccount form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.container_CreateAccount form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.container_CreateAccount form button:hover {
+    background-color: #0056b3;
+}
