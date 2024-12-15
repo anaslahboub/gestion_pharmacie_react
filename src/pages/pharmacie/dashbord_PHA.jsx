@@ -1,41 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../styles/pharmacie/dashbord_PHA.css";
 import {Link } from "react-router-dom"
+import axios from 'axios';
 
-const stats = [
-  { title: "Ordonnances Reçues Aujourd'hui", value: 15 },
-  { title: "Ordonnances en Attente", value: 8 },
-  { title: "Ordonnances Prêtes", value: 7 },
-];
 
-const orders = [
-  {
-    image: "https://storage.googleapis.com/a1aa/image/faYSa23U4fomJU5XS8PqJPdeCVHqoNHpv5R8sTYnNQOp76nnA.jpg",
-    name: "Jean Dupont",
-    id: "001",
-    date: "2023-10-01",
-    status: "En attente",
-    
-  },
-  {
-    image: "https://storage.googleapis.com/a1aa/image/3ttPcr1p07J2GtqdzytxAfPKWKjjSe8htcCVE45Q3c22d9zTA.jpg",
-    name: "Marie Curie",
-    id: "002",
-    date: "2023-10-01",
-    status: "En préparation",
-  
-  },
-  {
-    image: "https://storage.googleapis.com/a1aa/image/JNMERwhnxZpjGZlfPYwu0ACrzJ7e9mvgzZMki1yblVfm76nnA.jpg",
-    name: "Albert Einstein",
-    id: "003",
-    date: "2023-10-01",
-    status: "Prête",
-    
-  },
-];
+
+
+;
 
 function Dashboard_PHA() {
+  const [accepter ,setAccepter]=useState();
+  const [total ,setTotale]=useState();
+  const [encours ,setEncours]=useState();
+  const [orders, setOrdonnances] = useState([]);
+
+  const idPharmacien=2;
+  
+
+const stats = [
+  { title: "Ordonnances Reçues ", value: total },
+  { title: "Ordonnances en Attente", value: encours },
+  { title: "Ordonnances Prêtes", value: accepter },
+];
+
+
+  const fetchrecuesRecues = async () =>{
+    const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnances/${idPharmacien}/totale`);
+    setTotale(response.data);
+
+  }
+  const fetchrecuesEncours = async () =>{
+    const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnances/${idPharmacien}/encours`);
+    setEncours(response.data);
+  }
+  const fetchrecuesAccepter = async () =>{
+    const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnances/${idPharmacien}/acceptees`);
+    setAccepter(response.data);
+  }
+
+  const fetchOrdonnances = async () => {
+   
+      const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnances/${idPharmacien}`);
+      const recentOrders = response.data.slice(-3);
+      setOrdonnances(recentOrders);
+  };
+
+  useEffect(()=>{
+    fetchrecuesRecues();
+    fetchrecuesEncours();
+    fetchrecuesAccepter();
+    fetchOrdonnances(); 
+  },[idPharmacien]);
+
+
+
+
   return (
     <div id="dashboard" className="main-content">
       {/* Section des statistiques */}
@@ -55,16 +74,16 @@ function Dashboard_PHA() {
           {orders.map((order, index) => (
             <div className="order-card" key={index}>
               <img
-                alt={`Image de l'ordonnance de ${order.name}`}
+                alt={`Image de l'ordonnance de ${order.nom}`}
                 className="order-image"
-                src={order.image}
+                src="/src/assets/pharmacieImage/pharmacie-1024x620.jpg"
               />
-              <h3 className="order-name">{order.name}</h3>
-              <p className="order-id">ID: {order.id}</p>
-              <p className="order-date">Date: {order.date}</p>
-              <p className="order-status">Statut: {order.status}</p>
+              <h3 className="order-name"><i className="fas fa-user"></i>{order.patient.nom}</h3>
+              <p className="order-id"><i className="fas fa-id-card"></i>ID: {order.id}</p>
+              <p className="order-date"><i className="fas fa-calendar-alt"></i>Date: {order.dateEnvoie}</p>
+              <p className="order-status"><i className="fas fa-info-circle"></i>Statut: {order.statut}</p>
               <Link to={`/pharmacie/detailOrdonnance/${order.id}`} className="order-details-link">
-                Détails
+              <i className="fas fa-info-circle"> </i>Détails
               </Link>
             </div>
           ))}

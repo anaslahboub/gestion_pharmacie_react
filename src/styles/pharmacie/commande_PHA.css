@@ -16,30 +16,28 @@
 }
 
 .commande-grid {
+	
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
 }
 
-@media (min-width: 768px) {
-	.commande-grid {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-}
+
 
 .commande-cardd {
-	background-color: #f1f1f1;
-	padding: 16px;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	background-color: #f1f5f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .commande-image {
 	width: 100%;
-	height: 120px;
-	object-fit: cover;
-	border-radius: 8px;
-	margin-bottom: 16px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .commande-name {
@@ -47,15 +45,53 @@
 	font-weight: bold;
 }
 
-.commande-info {
+.commande_info {
 	color: #4a4a4a;
 	font-size: 1rem;
 	margin: 8px 0;
 }
 
-.commande-details-link {
+/* .commande-details-link {
 	color: #3182ce;
 	font-weight: 500;
 	margin-top: 8px;
 	display: inline-block;
 }
+
+.countainer_btton{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+} */
+
+.countainer_btton {
+	display: flex; 
+	justify-content: space-around; 
+	align-items: center; 
+	margin-top: 10px; 
+  }
+  
+  .commande-details-link {
+	text-decoration: none; 
+	color: #007bff; 
+	font-weight: bold; 
+	transition: color 0.3s;
+  }
+  
+  .commande-details-link:hover {
+	color: #0056b3; 
+  }
+  
+  .notifier-button {
+	background-color: #28a745; 
+	color: white; 
+	border: none; 
+	padding: 10px 15px; 
+	border-radius: 5px; 
+	cursor: pointer; 
+	transition: background-color 0.3s; 
+  }
+  
+  .notifier-button:hover {
+	background-color: #218838; 
+  }

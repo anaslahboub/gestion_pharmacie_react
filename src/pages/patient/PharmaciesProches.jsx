@@ -1,15 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
 import "./styles/PharmaciesProches.css";
 
 const PharmaciesProches = () => {
-  const [userPosition, setUserPosition] = useState(null);
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
   const mapRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [distanceFilter, setDistanceFilter] = useState('');
+  
+  const pharmacies = [
+    { name: "Pharmacie A", lat: 48.8584, lng: 2.2945, status: "active", distance: 3 },
+    { name: "Pharmacie B", lat: 48.8606, lng: 2.3376, status: "inactive", distance: 8 },
+    { name: "Pharmacie C", lat: 48.8530, lng: 2.3499, status: "active", distance: 12 },
+  ];
 
   useEffect(() => {
     // Load Google Maps script
@@ -19,86 +23,52 @@ const PharmaciesProches = () => {
     script.defer = true;
     document.body.appendChild(script);
 
-    // Get user location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setUserPosition({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-          alert("Unable to fetch your location. Please allow location access.");
-        }
-      );
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
-
     return () => {
       document.body.removeChild(script);
     };
   }, []);
 
   useEffect(() => {
-    // Initialize map and markers when Google Maps API is loaded
+    // Initialize the map when Google Maps API is loaded
     window.initMap = () => {
-      const center = userPosition || { lat: 48.8566, lng: 2.3522 }; // Default: Paris
+      const center = { lat: 48.8566, lng: 2.3522 }; // Paris, France
       const map = new window.google.maps.Map(mapRef.current, {
         zoom: 12,
         center: center,
       });
 
-      // Fetch pharmacies dynamically
-      if (userPosition) {
-        axios
-          .get(
-            `https://overpass-api.de/api/interpreter?data=[out:json];node(around:1500,${userPosition.lat},${userPosition.lng})[amenity=pharmacy];out;`
-          )
-          .then((response) => {
-            const pharmacies = response.data.elements.map((pharmacy) => ({
-              name: pharmacy.tags.name || "Pharmacie",
-              lat: pharmacy.lat,
-              lng: pharmacy.lon,
-              status: pharmacy.tags["healthcare:status"] || "unknown",
-              distance: 1, // Static for now, calculate if needed
-            }));
+      // Create markers for pharmacies
+      const newMarkers = pharmacies.map(pharmacy => {
+        const marker = new window.google.maps.Marker({
+          position: { lat: pharmacy.lat, lng: pharmacy.lng },
+          map: map,
+          title: pharmacy.name,
+        });
 
-            const newMarkers = pharmacies.map((pharmacy) => {
-              const marker = new window.google.maps.Marker({
-                position: { lat: pharmacy.lat, lng: pharmacy.lng },
-                map: map,
-                title: pharmacy.name,
-              });
+        const infoWindow = new window.google.maps.InfoWindow({
+          content: `<h3>${pharmacy.name}</h3><p>Status: ${pharmacy.status}</p><p>Distance: ${pharmacy.distance} km</p>`,
+        });
 
-              const infoWindow = new window.google.maps.InfoWindow({
-                content: `<h3>${pharmacy.name}</h3><p>Status: ${pharmacy.status}</p>`,
-              });
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
 
-              marker.addListener("click", () => {
-                infoWindow.open(map, marker);
-              });
+        return { marker, pharmacy };
+      });
 
-              return { marker, pharmacy };
-            });
-
-            setMarkers(newMarkers);
-            setFilteredMarkers(newMarkers);
-          })
-          .catch((error) => console.error("Error fetching pharmacies:", error));
-      }
+      setMarkers(newMarkers);
+      setFilteredMarkers(newMarkers); // Set filtered markers initially to all markers
     };
-  }, [userPosition]);
+  }, []);
 
   useEffect(() => {
     // Filter markers based on search term, status, and distance
     filterPharmacies();
   }, [searchTerm, statusFilter, distanceFilter]);
 
+  // Filter function to update the markers based on the input
   const filterPharmacies = () => {
-    const filtered = markers.filter((markerObj) => {
+    const filtered = markers.filter(markerObj => {
       const pharmacy = markerObj.pharmacy;
       const matchesName = pharmacy.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesStatus = !statusFilter || pharmacy.status === statusFilter;
@@ -121,7 +91,7 @@ const PharmaciesProches = () => {
       <div className="grid-container_Pharmacies">
         <div className="grid-item_Pharmacies">
           <h4>Pharmacies Proches</h4>
-          <p>Visualisez les pharmacies disponibles dans votre région.</p>
+          <p>Visualisez les pharmacies partenaires disponibles dans votre région.</p>
 
           <div className="filters">
             <input
@@ -143,7 +113,10 @@ const PharmaciesProches = () => {
             </select>
           </div>
 
-          <div ref={mapRef} id="map" style={{ height: "500px", width: "100%" }}></div>
+          <div
+            ref={mapRef}
+            id='map'
+          ></div>
         </div>
       </div>
     </div>

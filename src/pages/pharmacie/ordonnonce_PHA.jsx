@@ -43,6 +43,7 @@ const ordonnancess = [
 function Ordonnances_PHA() {
   const [ordonnances, setOrdonnances] = useState([]);
   const idPharmacien = 2;
+  
 
   const fetchOrdonnances = async () => {
      
@@ -65,12 +66,12 @@ function Ordonnances_PHA() {
           {ordonnances.map((ordonnance) => (
             <div className="card-item" key={ordonnance.id}>
               <img className="card-img" src={"/src/assets/pharmacieImage/pharmacie-1024x620.jpg" ||ordonnance.imagePath} alt={`Image de l'ordonnance de ${ordonnance.name}`} />
-              <h3 className="card-name">{ordonnance.patient.nom} {ordonnance.patient.prenom}</h3>
-              <p className="card-text">ID: {ordonnance.id}</p>
-              <p className="card-text">Date: {ordonnance.dateEnvoie}</p>
-              <p className="card-text">Statut: {ordonnance.ststatutatus}</p>
+              <h3 className="card-name"> <i className="fas fa-user"></i>  {ordonnance.patient.nom} {ordonnance.patient.prenom}</h3>
+              <p className="card-text">  <i className="fas fa-id-card"></i> ID: {ordonnance.id}</p>
+              <p className="card-text">  <i className="fas fa-calendar-alt"></i> Date: {ordonnance.dateEnvoie}</p>
+              <p className="card-text">  <i className="fas fa-info-circle"></i>Statut: {ordonnance.statut}</p>
               <Link to={`/pharmacie/detailOrdonnance/${ordonnance.id}`} className="order-details-link">
-                Détails
+              <i className="fas fa-info-circle"> </i>Détails
               </Link>
             </div>
           ))}

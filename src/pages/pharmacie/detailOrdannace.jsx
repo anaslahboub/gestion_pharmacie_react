@@ -3,32 +3,9 @@ import { useParams ,useNavigate } from "react-router-dom";
 import "../../styles/pharmacie/detailordonnance_PHA.css";
 import axios from "axios";
 
-const orders = [
-  {
-    image: "https://storage.googleapis.com/a1aa/image/faYSa23U4fomJU5XS8PqJPdeCVHqoNHpv5R8sTYnNQOp76nnA.jpg",
-    name: "Jean Dupont",
-    id: "001",
-    date: "2023-10-01",
-    status: "En attente",
-  },
-  {
-    image: "https://storage.googleapis.com/a1aa/image/3ttPcr1p07J2GtqdzytxAfPKWKjjSe8htcCVE45Q3c22d9zTA.jpg",
-    name: "Marie Curie",
-    id: "002",
-    date: "2023-10-01",
-    status: "En préparation",
-  },
-  {
-    image: "https://storage.googleapis.com/a1aa/image/JNMERwhnxZpjGZlfPYwu0ACrzJ7e9mvgzZMki1yblVfm76nnA.jpg",
-    name: "Albert Einstein",
-    id: "003",
-    date: "2023-10-01",
-    status: "Prête",
-  },
-];
+
 
 function DetailOrdonnance() {
-  const navigate =useNavigate();
   const { id } = useParams();  // Récupérer l'ID depuis l'URL
   const [order, setOrder] = useState(null);  // Stocker les détails de l'ordonnance
   const [loading, setLoading] = useState(true); // Gérer l'état de chargement
@@ -39,9 +16,8 @@ function DetailOrdonnance() {
   useEffect(() => {
     const fetchOrdonnance = async () => {
       try {
-        // Correction de la syntaxe : const et ajout de la fin de la parenthèse
         const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnance/${id}`);
-        setOrder(response.data);  // Mettre à jour les détails de l'ordonnance
+        setOrder(response.data); 
         setLoading(false);
       } catch (err) {
         console.error("Erreur lors de la récupération de l'ordonnance :", err);
@@ -51,7 +27,7 @@ function DetailOrdonnance() {
     };
 
     fetchOrdonnance();
-  }, [id]);  // Déclenche l'effet lorsque l'ID change
+  }, [id]);  
 
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>{error}</p>;

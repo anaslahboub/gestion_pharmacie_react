@@ -1,6 +1,6 @@
 /* Conteneur principal */
 .header-container {
-    background: linear-gradient(to right, #032406, #43c751, #fffbfb);
+    background: #00730c;
     padding: 16px 24px;
     color: white;
     display: flex;
