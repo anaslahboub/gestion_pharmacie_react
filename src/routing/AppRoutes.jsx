@@ -88,7 +88,6 @@ const AppRoutes = () => {
               {/* Dashboard Pharmacie */}
               <Route index element={<PharmacieDashboard />} />
               <Route path="dashboard" element={<PharmacieDashboard />} />
-              {/* Routes spécifiques Pharmacie */}
               <Route path="commande" element={<Commande />} />
               <Route path="addPharmacy" element={<AddPharmacy />} />
               <Route path="detailOrdonnance/:id" element={<DetailOrdonnance />} />

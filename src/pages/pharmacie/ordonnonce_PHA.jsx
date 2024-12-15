@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import "../../styles/pharmacie/ordonnonce_PHA.css"
-const ordonnances = [
+const ordonnancess = [
   {
     id: '001',
     name: 'Jean Dupont',
@@ -40,6 +41,22 @@ const ordonnances = [
 ];
 
 function Ordonnances_PHA() {
+  const [ordonnances, setOrdonnances] = useState([]);
+  const idPharmacien = 2;
+
+  const fetchOrdonnances = async () => {
+     
+        const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnances/${idPharmacien}`);
+        setOrdonnances(response.data);
+    };
+
+  useEffect(() => {
+    fetchOrdonnances();
+  }, [idPharmacien]);
+
+ 
+
+
   return (
     <div id="ordonnances" className="">
       <div className="card-wrapper">
@@ -47,11 +64,11 @@ function Ordonnances_PHA() {
         <div className="card-grid">
           {ordonnances.map((ordonnance) => (
             <div className="card-item" key={ordonnance.id}>
-              <img className="card-img" src={ordonnance.imgSrc} alt={`Image de l'ordonnance de ${ordonnance.name}`} />
-              <h3 className="card-name">{ordonnance.name}</h3>
+              <img className="card-img" src={"/src/assets/pharmacieImage/pharmacie-1024x620.jpg" ||ordonnance.imagePath} alt={`Image de l'ordonnance de ${ordonnance.name}`} />
+              <h3 className="card-name">{ordonnance.patient.nom} {ordonnance.patient.prenom}</h3>
               <p className="card-text">ID: {ordonnance.id}</p>
-              <p className="card-text">Date: {ordonnance.date}</p>
-              <p className="card-text">Statut: {ordonnance.status}</p>
+              <p className="card-text">Date: {ordonnance.dateEnvoie}</p>
+              <p className="card-text">Statut: {ordonnance.ststatutatus}</p>
               <Link to={`/pharmacie/detailOrdonnance/${ordonnance.id}`} className="order-details-link">
                 Détails
               </Link>
