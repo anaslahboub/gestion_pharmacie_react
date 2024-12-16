@@ -1,5 +1,5 @@
 .commande-details {
-	width: 500px;
+	width: 600px;
     height: 100%px;
 	padding: 20px;
 	background-color: white;
@@ -12,6 +12,7 @@
 .main-content_commande-details {
     width: 900px;
 	padding: 20px;
+  margin-top: 10px;
 }
 /* En-tête des détails de l'ordonnance */
 .commande-details h2 {

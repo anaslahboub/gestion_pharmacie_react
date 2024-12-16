@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import "../pages/Login.css";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -17,11 +19,43 @@ const Login = () => {
         admin: "Connexion - Admin",
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(`Connexion pour ${role} avec email : ${email}`);
-        // Appeler une API pour valider les informations
-        navigate(`/${role}/dashboard`); // Rediriger vers le tableau de bord correspondant
+    // Gestion des champs de saisie
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    // Gestion de la soumission du formulaire
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post(
+                `http://localhost:8080/pharmacie__API/api/${role}/login`, // URL dynamique basée sur le rôle
+                {
+                    email: formData.email,
+                    password: formData.password,
+                }
+            );
+        if(role=="patient"){
+            if ( response.data) {
+                localStorage.setItem("patientId", response.data);
+            }    
+        }    
+                setSuccessMessage("Connexion réussie !");
+                setErrorMessage("");
+                setTimeout(() => {
+                    navigate(`/${role}/Dashboard`);
+                }, 1000);
+            
+        } catch (error) {
+            if (error.response) {
+                setErrorMessage(error.response.data); // Affiche l'erreur du back-end
+            } else {
+                setErrorMessage("Erreur lors de la connexion. Veuillez réessayer.");
+            }
+            setSuccessMessage("");
+        }
     };
 
     return (
@@ -32,19 +66,22 @@ const Login = () => {
                     <form className="form-1" onSubmit={handleSubmit}>
                         <input
                             type="email"
+                            name="email"
                             placeholder="Adresse email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={formData.email}
+                            onChange={handleChange}
                             className="auth-input"
                             required
                         />
                         <input
                             type="password"
+                            name="password"
                             placeholder="Mot de passe"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="auth-input"
+                            value={formData.password}
+                            onChange={handleChange}
                             required
+                            className="auth-input"
+                            
                         />
                         <button type="submit" className="auth-button">
                             Se connecter
@@ -65,7 +102,10 @@ const Login = () => {
                         </div>
                     )}
                 </div>
+                {errorMessage && <p className="error">{errorMessage}</p>}
+            {successMessage && <p className="success">{successMessage}</p>}
             </div>
+            
         </div>
     );
 };

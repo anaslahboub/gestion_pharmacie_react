@@ -1,5 +1,5 @@
 .ordonnance-details {
-	width: 500px;
+	width: 600px;
     height: 100%px;
 	padding: 20px;
 	background-color: white;
@@ -12,7 +12,9 @@
 .main-content_ordonnance-details {
     width: 900px;
 	padding: 20px;
+  margin-top: 20px;
 }
+
 /* En-tête des détails de l'ordonnance */
 .ordonnance-header h2 {
 	font-size: 24px;
@@ -60,3 +62,4 @@
     width: 90%;
     height: 100%;
   }
+  

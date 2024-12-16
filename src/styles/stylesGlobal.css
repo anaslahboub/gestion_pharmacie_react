@@ -25,49 +25,7 @@ main {
 } */
 
 /* Titre principal */
- h1 {
-    font-size: 2.8em; 
-    color: #2c3e50; 
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 30px;
-}
-
-
-h2 {
-    font-size: 2.25em;
-    color: #1abc9c; 
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-
-h3 {
-    font-size: 1.85em; 
-    color: #34495e;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-
-h4 {
-    font-size: 1.5em;
-    color: #7f8c8d;
-    margin-bottom: 10px;
-} */
-
-/* Paragraphe */
-p {
-    font-size: 1rem; /* Taille de texte confortable */
-    line-height: 1.8; /* Hauteur de ligne pour une lecture facile */
-    color: #060505;
-    margin-bottom: 20px; /* Espacement entre les paragraphes */
-}
-
-/* Liens */
-a {
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
+ 
 
 
 /* Responsivité */
