@@ -1,6 +1,8 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate,useLocation} from "react-router-dom";
+import axios from "axios";
+
 import "../styles/style.css";
 const Header = () => {
   const [isLogoutVisible, setIsLogoutVisible] = useState(false);
@@ -8,7 +10,23 @@ const Header = () => {
   const logoutRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-
+    const [error, setError] = useState(""); // Gestion des erreurs
+  
+  const [prenom, setPrenom] = useState("")
+const patientId = localStorage.getItem("patientId");
+  // Charger les données initiales depuis le serveur
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/pharmacie__API/api/patient/header?patientId=${patientId}`) // Remplacez 1 par l'ID du patient connecté
+      .then((response) => {
+        setPrenom(response.data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors du chargement des données :", error);
+        setError("Impossible de charger les données du profil.");
+        
+      });
+  }, []);
     // Déterminer le rôle en fonction de l'URL
     const role = location.pathname.split("/")[1]; // Exemple : '/patient/signin'
   useEffect(() => {
@@ -46,7 +64,7 @@ const Header = () => {
             <button id="logoutButton" onClick={() => navigate(`/${role}/Login`)}>Se Déconnecter</button>
           </div>
         )}
-        <span>Bonjour, Marouane</span>
+        <span>Bonjour,  {prenom}</span>
       </div>
     </div>
   );
