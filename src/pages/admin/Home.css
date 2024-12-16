@@ -1,0 +1,9 @@
+.hero {
+    position: relative;
+}
+
+.banner_img {
+    width: 100%;
+    mask-image: url('../../assets/hero_banner.jpg');
+    -webkit-mask-image: linear-gradient(to right, transparent, black 75%); /* Fallback for older browsers */
+}
