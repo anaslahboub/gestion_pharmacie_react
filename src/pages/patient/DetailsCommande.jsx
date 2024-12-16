@@ -102,7 +102,7 @@ const DetailsCommande = () => {
   {isImageOpen && (
     <div className="image-modal_commande" onClick={handleCloseModal}>
       <div className="image-modal-content_commande">
-        <img src={imageSrc} alt="Ordonnance en grand" />
+        <img src={ imageSrc} alt="Ordonnance en grand" />
       </div>
     </div>
   )}
