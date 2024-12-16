@@ -1,118 +1,126 @@
+.patient-main-container{
+    min-width: 1000px;
+    background-color: #f9fafb;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 32px 24px;
+}
+.patient-commande-list{
+    border-radius: 8px;
+    width: 100%;
+}
 
-/* Style pour les cartes d'ordonnances */
-.commande-card {
-    width: 1000px;
-	background-color: #ffffff;
-	/* Fond blanc */
+.patient-commande-grid{
+	display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+	gap: 24px;
+}
+.patient-commande-card{
+	background-color: #f1f5f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.patient-detail-container {
 	padding: 20px;
-	margin: 15px 0;
-	/* Espacement entre les cartes */
-	border-radius: 8px;
-	/* Coins arrondis */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	/* Ombre légère */
-	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-/* Effet au survol de la carte */
-.commande-card:hover {
-	transform: translateY(-5px);
-	/* Légère élévation */
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-	/* Ombre plus marquée */
-}
-
-/* Titre de l'ordonnance */
-.commande-card h3 {
-	font-size: 18px;
-	font-weight: bold;
-	color: #2c3e50;
-	/* Texte foncé */
-	margin-bottom: 10px;
-}
-
-/* Texte de la date et du statut */
-.commande-card p {
-	font-size: 14px;
-	color: #7f8c8d;
-	/* Texte gris */
-	margin: 5px 0;
-}
-
-/* Bouton dans la carte */
-.commande-card button {
-	background-color: #1abc9c;
-	/* Couleur primaire */
-	color: white;
-	/* Texte blanc */
-	padding: 10px 15px;
-	border: none;
-	border-radius: 5px;
-	/* Boutons arrondis */
-	cursor: pointer;
-	font-size: 14px;
-	transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* Effet au survol du bouton */
-.commande-card button:hover {
-	background-color: #16a085;
-	/* Couleur légèrement plus foncée */
-	transform: scale(1.05);
-	/* Agrandissement léger */
-}
-
-.main-content_Commandes h1 {
-	font-size: 35px;
-	color: #34495e;
-	margin-bottom: 20px;
-   
-    text-align: center;
-}
-
-.commande-item {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 700px;
+	gap: 50px;
+  }
+  
+  .patient-detail-container h2 {
+	margin-top: 60px;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;
+	color: #333;
+  }
+  
+  .patient-detail-info {
+	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 15px;
-	border-bottom: 1px solid #ecf0f1;
-}
-
-.commande-item:last-child {
-	border-bottom: none;
-}
-
-.commande-item:hover {
-	background-color: #f8f9fa;
-}
-
-.commande-title {
+	gap: 10px;
+  }
+  
+  .patient-detail-card {
+	flex: 1;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	gap: 50px;
+  }
+  .patient-commande-image{
+	width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .patient-detail-card h3,
+  .patient-detail-card p {
+	margin: 10px 0;
+	font-size: 16px;
+	color: #555;
+  }
+  
+  .patient-detail-select {
+	margin-left: 10px;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+  }
+  
+  .patient-detail-buttons {
+	display: flex;
+	gap: 10px;
+	margin-top: 20px;
+  }
+  
+  .patient-detail-changer-btn,
+  .patient-detail-notifier-btn {
+	padding: 10px 20px;
 	font-size: 16px;
 	font-weight: bold;
-	color: #2c3e50;
-}
-
-.commande-date {
-	font-size: 14px;
-	color: #7f8c8d;
-}
-
-/* Boutons spécifiques */
-.commande-actions button {
-	background-color: #3498db;
-	color: white;
-	padding: 8px 12px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: background-color 0.3s;
-}
-
-.commande-actions button:hover {
-	background-color: #2980b9;
-}
-.main-content_Commandes {
-	
-	padding: 20px;
-
-}
+	transition: all 0.3s ease;
+  }
+  
+  .patient-detail-changer-btn {
+	background-color: #007bff;
+	color: white;
+  }
+  
+  .patient-detail-changer-btn:hover {
+	background-color: #0056b3;
+  }
+  
+  .patient-detail-notifier-btn {
+	background-color: #28a745;
+	color: white;
+  }
+  
+  .patient-detail-notifier-btn:hover {
+	background-color: #1e7e34;
+  }
+  
+  .patient-detail-image-container {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .patient-detail-image {
+	max-width: 100%;
+	height: 100%;
+  }
+  

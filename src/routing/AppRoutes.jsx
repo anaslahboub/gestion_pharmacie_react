@@ -73,7 +73,7 @@ const AppRoutes = () => {
             <Route path="/patient/DetailsOrdonnance" element={<PatientLayout />}>
                 <Route index element={<DetailsOrdonnance />} />
             </Route>
-            <Route path="/patient/DetailsCommande" element={<PatientLayout />}>
+            <Route path="/patient/DetailsCommande/:id" element={<PatientLayout />}>
                 <Route index element={<DetailsCommande />} />
             </Route>
             

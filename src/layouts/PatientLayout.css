@@ -1,34 +1,22 @@
-.patient-layout {
-    display: grid;
-    grid-template-areas: 
-      "navbar header"
-      "navbar main";
-    grid-template-columns: 250px 1fr; /* Navbar largeur fixe, contenu ajustable */
-    grid-template-rows: auto 1fr; /* Header hauteur ajustée, contenu occupe le reste */
-    height: 100vh; /* Occupe toute la hauteur de la fenêtre */
-  }
-  
-  .patient-layout > :nth-child(1) {
-    grid-area: navbar;
-    height: 100%;
-    position: fixed; 
-    width: 250px; 
-  }
-  
-  .patient-layout > :nth-child(2) {
-    grid-area: header;
-    height: 60px; 
-    position: fixed; 
-    width: calc(100% - 290px); 
-    left: 250px; 
+
+   .patient-layout {
+    display: flex; /* Dispose les enfants horizontalement */
+    height: 100vh; /* Assure que la mise en page prend toute la hauteur */
+}
+
+.patient-layout .Navbar {
+    flex-shrink: 0; /* Empêche la barre de navigation de rétrécir */
+    width: 200px; /* Vous pouvez ajuster la largeur selon vos besoins */
+    background-color: #f4f4f4; /* Ajout d'une couleur de fond pour la barre */
+    border-right: 1px solid #ddd; /* Ajout d'une bordure pour la séparation */
     display: flex;
-    align-items: center;
-    padding: 0 20px;
-  }
-  
-  .patient-layout main {
-    grid-area: main;
-    height: calc(100vh - 60px); 
+    flex-direction: column;
+}
+
+.gl {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Prend l'espace restant à côté de la navbar */
     
-  }
-  
+    overflow: auto; /* Permet le défilement si nécessaire */
+}

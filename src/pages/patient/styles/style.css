@@ -11,7 +11,7 @@ body {
 	width: 220px;
 	height: 100vh;
 	background-color: #2C3E50;
-	position: fixed;
+	/* position: fixed; */
 	top: 0;
 	left: 0;
 	padding-top: 20px;
@@ -45,10 +45,11 @@ body {
 	
 	/* Header */
 	.header {
-		position: fixed;
+		/* position: fixed; 
+		
+		left: 220px; Décalage pour la Navbar */
+		width: calc(98%);
 		top: 0;
-		left: 220px; /* Décalage pour la Navbar */
-		width: calc(100% - 220px); /* Ajuste la largeur pour tenir compte de la Navbar */
 		height: 60px;
 		padding: 20px;
 		background-color: #ffffff;

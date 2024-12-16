@@ -8,10 +8,12 @@ import './PatientLayout.css';
 const PatientLayout = () => (
   <div className="patient-layout">
     <Navbar />
-    <Header />
-    <main>
-      <Outlet />
-    </main>
+    <section className='gl'>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+    </section>
   </div>
 );
 
