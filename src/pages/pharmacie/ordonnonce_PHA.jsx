@@ -42,7 +42,7 @@ const ordonnancess = [
 
 function Ordonnances_PHA() {
   const [ordonnances, setOrdonnances] = useState([]);
-  const idPharmacien = 2;
+  const idPharmacien = localStorage.getItem("idPharmacien");
   
 
   const fetchOrdonnances = async () => {

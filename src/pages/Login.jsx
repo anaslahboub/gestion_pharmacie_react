@@ -40,13 +40,30 @@ const Login = () => {
         if(role=="patient"){
             if ( response.data) {
                 localStorage.setItem("patientId", response.data);
-            }    
+
+            }   
+            setSuccessMessage("Connexion réussie !");
+            setErrorMessage("");
+            setTimeout(() => {
+                navigate(`/${role}/Dashboard`);
+            }, 1000); 
+           
         }    
-                setSuccessMessage("Connexion réussie !");
-                setErrorMessage("");
-                setTimeout(() => {
-                    navigate(`/${role}/Dashboard`);
-                }, 1000);
+          
+        if(role=="pharmacien"){
+           
+            if ( response.data) {
+                localStorage.setItem("idPharmacien", response.data);
+
+            } 
+            setSuccessMessage("Connexion réussie !");
+            setErrorMessage("");
+            setTimeout(() => {
+                navigate(`/pharmacie/dashboard`);
+            }, 1000);
+            
+        }
+               
             
         } catch (error) {
             if (error.response) {

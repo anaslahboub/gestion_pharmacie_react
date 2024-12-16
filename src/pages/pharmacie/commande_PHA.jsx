@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function CommandePHA() {
   const [commandes, setCommandes] = useState([]);
-  const idPharmacien = 2;
+  const idPharmacien = localStorage.getItem("idPharmacien");
 
   const fetchCommandes = async () =>{
     const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/commandes/${idPharmacien}`);

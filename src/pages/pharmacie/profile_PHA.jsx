@@ -6,7 +6,7 @@ const Profile = () => {
   // Définir l'état initial avec un objet vide
   const [formData, setFormData] = useState({});
   const [photoProfile,setPhotoProfile] =useState();
-  const idPharmacien = 2;
+  const idPharmacien =localStorage.getItem("idPharmacien");
 
   // Fonction pour récupérer les données du profil
   const fetchProfile = async () => {
