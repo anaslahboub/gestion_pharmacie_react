@@ -1,0 +1,22 @@
+
+   .patient-layout {
+    display: flex; /* Dispose les enfants horizontalement */
+    height: 100vh; /* Assure que la mise en page prend toute la hauteur */
+}
+
+.patient-layout .Navbar {
+    flex-shrink: 0; /* Empêche la barre de navigation de rétrécir */
+    width: 200px; /* Vous pouvez ajuster la largeur selon vos besoins */
+    background-color: #f4f4f4; /* Ajout d'une couleur de fond pour la barre */
+    border-right: 1px solid #ddd; /* Ajout d'une bordure pour la séparation */
+    display: flex;
+    flex-direction: column;
+}
+
+.gl {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Prend l'espace restant à côté de la navbar */
+    
+    overflow: auto; /* Permet le défilement si nécessaire */
+}

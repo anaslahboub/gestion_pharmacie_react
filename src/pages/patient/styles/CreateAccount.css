@@ -1,6 +1,11 @@
 
 .container_CreateAccount {
+<<<<<<< HEAD
     margin-top: 100px;
+=======
+    margin-top: 20px;
+    margin-left: 280px;
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
     width: 600px;
     background: #ffffff;
     padding: 20px;
@@ -39,3 +44,20 @@
 .container_CreateAccount form button:hover {
     background-color: #0056b3;
 }
+<<<<<<< HEAD
+=======
+.error {
+    color: red;
+    text-align: center;
+    align-content: center;
+    background-color: antiquewhite;
+    height: 40px;
+}
+.success{
+    color: green;
+    text-align: center;
+    align-content: center;
+    background-color: rgb(215, 250, 250);
+    height: 40px;
+}
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30

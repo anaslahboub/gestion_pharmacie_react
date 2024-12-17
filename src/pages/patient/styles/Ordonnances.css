@@ -3,7 +3,10 @@
 .ordonnance-card {
     width: 1000px;
 	background-color: #ffffff;
+<<<<<<< HEAD
 	/* Fond blanc */
+=======
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	padding: 20px;
 	margin: 15px 0;
 	/* Espacement entre les cartes */
@@ -65,8 +68,11 @@
 .main-content_Ordonnance h1 {
 	font-size: 35px;
 	color: #34495e;
+<<<<<<< HEAD
 	margin-bottom: 20px;
     margin-top: 460px;
+=======
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
     text-align: center;
 }
 
@@ -112,8 +118,13 @@
 	background-color: #2980b9;
 }
 .main-content_Ordonnance {
+<<<<<<< HEAD
 	margin-top: 60px;
 	margin-left: 240px;
 	padding: 20px;
 
+=======
+	padding: 20px;
+    
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 }

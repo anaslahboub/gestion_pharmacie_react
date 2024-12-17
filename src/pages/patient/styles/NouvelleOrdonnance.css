@@ -8,8 +8,11 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .main-content_NouvelleOrdonnance {
+<<<<<<< HEAD
 	margin-top: 60px;  /* Compense la hauteur du header */
 	margin-left: 240px; /* Compense la largeur de la navbar */
+=======
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	padding: 20px;
 	
   }
@@ -22,15 +25,24 @@
 }
 
 /* Label et champ de saisie pour la pharmacie */
+<<<<<<< HEAD
 label {
+=======
+.ordonnance-form-container label {
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	font-size: 16px;
 	color: #34495e;
 	margin-bottom: 8px;
 	display: block;
 }
 
+<<<<<<< HEAD
 select,
 input,
+=======
+.ordonnance-form-container select,
+.input-new-ordonance,
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 textarea {
 	width: 100%;
 	padding: 10px;
@@ -41,6 +53,23 @@ textarea {
 }
 
 /* Style spécifique pour la zone de texte (commentaire) */
+<<<<<<< HEAD
 textarea {
 	resize: vertical;
+=======
+.ordonnance-form-container textarea {
+	resize: vertical;
+}
+.ordonnance-form-container button {
+	background-color: #1abc9c;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+.ordonnance-form-container button:hover {
+	background-color: #16a085;
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 }

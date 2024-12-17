@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body,
 		html {
 			margin: 0;
@@ -81,3 +82,107 @@ body,
 			color: #0056b3;
 			/* Couleur au survol */
 		}
+=======
+/* --- WRAPPER PRINCIPAL --- */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px; /* Pour les petits écrans */
+}
+
+/* --- BOÎTE D'AUTHENTIFICATION --- */
+.auth-box {
+    width: 50%;
+    max-width: 40%;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* --- FORMULAIRE --- */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+ .form-1{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+/* --- TITRE --- */
+.auth-title {
+    margin-bottom: 20px;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #000000;
+    /* text-transform: uppercase; */
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* --- INPUTS --- */
+.auth-input {
+    width: 70%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+.auth-input:focus {
+    border: 1px solid #74ebd5;
+    outline: none;
+}
+
+/* --- BOUTON --- */
+.auth-button {
+    width: 43%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-button:hover {
+    background: linear-gradient(90deg, #0056b3, #003f7f);
+    transform: translateY(-2px);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+/* --- LIENS --- */
+.auth-links {
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.auth-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30

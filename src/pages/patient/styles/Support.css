@@ -12,8 +12,13 @@
  
 }
 .main-content_Support {
+<<<<<<< HEAD
 	margin-top: -184px;  /* Compense la hauteur du header */
 	margin-left: 150px; /* Compense la largeur de la navbar */
 	padding: 20px;
+=======
+	
+	padding: 40px;
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	
   }

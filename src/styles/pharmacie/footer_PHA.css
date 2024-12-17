@@ -1,0 +1,8 @@
+footer {
+    background-color: hwb(121 81% 0%);
+    text-align: center;
+    position: relative;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}

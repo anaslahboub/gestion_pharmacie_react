@@ -14,8 +14,14 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.9",
+<<<<<<< HEAD
+=======
+    "leaflet": "^1.9.4",
+    "leaflet-routing-machine": "^3.2.12",
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "react-router-dom": "^7.0.1"
   },
   "devDependencies": {

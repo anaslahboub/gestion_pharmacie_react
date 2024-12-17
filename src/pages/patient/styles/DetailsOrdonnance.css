@@ -1,5 +1,9 @@
 .ordonnance-details {
+<<<<<<< HEAD
 	width: 500px;
+=======
+	width: 600px;
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
     height: 100%px;
 	padding: 20px;
 	background-color: white;
@@ -11,10 +15,17 @@
 }
 .main-content_ordonnance-details {
     width: 900px;
+<<<<<<< HEAD
 	margin-top: 75px;
 	margin-left: 254px;
 	padding: 20px;
 }
+=======
+	padding: 20px;
+  margin-top: 20px;
+}
+
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 /* En-tête des détails de l'ordonnance */
 .ordonnance-header h2 {
 	font-size: 24px;
@@ -61,4 +72,9 @@
   .ordonnance-photo img{
     width: 90%;
     height: 100%;
+<<<<<<< HEAD
   }
+=======
+  }
+  
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30

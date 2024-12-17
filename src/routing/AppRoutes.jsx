@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 // Layouts
 import PatientLayout from '../layouts/PatientLayout';
+<<<<<<< HEAD
 import AdminLayout from '../layouts/AdminLayout';
 // import PharmacieLayout from '../layouts/PharmacieLayout';
 
@@ -38,11 +39,50 @@ import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
     const isAuthenticated = !!localStorage.getItem("userToken"); // Exemple : vérifier si un token existe
+=======
+//import AdminLayout from '../layouts/AdminLayout';
+import PharmacieLayout from '../layouts/PharmacieLayout';
+//import FormsLayout from '../layouts/FormsLayout';
+
+// Pages spécifiques pour chaque utilisateur
+import PharmacieDashboard from '../pages/pharmacie/dashbord_PHA';
+import Login from '../pages/Login';
+import Accueil from '../pages/accueil';
+import Commande from '../pages/pharmacie/commande_PHA';
+import AddPharmacy from '../pages/pharmacie/addPharmacy';
+import DetailOrdonnance from '../pages/pharmacie/detailOrdannace';
+import Notification from '../pages/pharmacie/notification_PHA';
+import Ordonnonce from '../pages/pharmacie/ordonnonce_PHA';
+import Profile from '../pages/pharmacie/profile_PHA';
+import Login_PHA from '../pages/pharmacie/login_PHA';
+import DetailCommande from '../pages/pharmacie/detailCommande'
+
+//marwan import :
+
+import NouvelleOrdonnance from '../pages/patient/NouvelleOrdonnance';
+import PatientDashboard from '../pages/patient/Dashboard';
+import Ordonnances from '../pages/patient/Ordonnances';
+import Commandes from '../pages/patient/Commandes';
+import Profil from '../pages/patient/Profil'
+import Support from '../pages/patient/Support'
+import PharmaciesProches from '../pages/patient/PharmaciesProches'
+import DetailsOrdonnance from '../pages/patient/DetailsOrdonnance'
+import DetailsCommande from '../pages/patient/DetailsCommande'
+import CreateAccount from '../pages/patient/CreateAccount'
+
+const AppRoutes = () => {
+   
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 
     return (
         <Routes>
             {/* Route principale */}
+<<<<<<< HEAD
             <Route path="/" element={<Acceuil />} />
+=======
+            <Route path="/" element={<Accueil />} />
+            
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 
             {/* Routes de connexion */}
             <Route path="/:role/login" element={<Login />} />
@@ -75,6 +115,7 @@ const AppRoutes = () => {
             <Route path="/patient/DetailsOrdonnance" element={<PatientLayout />}>
                 <Route index element={<DetailsOrdonnance />} />
             </Route>
+<<<<<<< HEAD
             <Route path="/patient/DetailsCommande" element={<PatientLayout />}>
                 <Route index element={<DetailsCommande />} />
             </Route>
@@ -100,6 +141,33 @@ const AppRoutes = () => {
             {/* <Route path="/pharmacien" element={<PharmacieLayout />}>
                 <Route index element={<PharmacieDashboard />} />
             </Route> */}
+=======
+            <Route path="/patient/DetailsCommande/:id" element={<PatientLayout />}>
+                <Route index element={<DetailsCommande />} />
+            </Route>
+            
+            {/* Espace Admin */}
+            {/* <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<AdminDashboard />} />
+            </Route> */}
+
+            {/* Espace Pharmacien */}
+           {/* Layout Pharmacie */}
+          <Route path="/pharmacie" element={<PharmacieLayout />}>
+              {/* Dashboard Pharmacie */}
+              <Route index element={<PharmacieDashboard />} />
+              <Route path="dashboard" element={<PharmacieDashboard />} />
+              <Route path="commande" element={<Commande />} />
+              <Route path="addPharmacy" element={<AddPharmacy />} />
+              <Route path="detailOrdonnance/:id" element={<DetailOrdonnance />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="ordonnonce" element={<Ordonnonce />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="forms" element={<Login_PHA />} />*
+              <Route path="detailCommande/:id" element={<DetailCommande />} />
+            
+          </Route>
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
         </Routes>
     );
 };

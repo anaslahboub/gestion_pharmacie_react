@@ -8,16 +8,26 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .main-content_Pharmacies{
+<<<<<<< HEAD
     margin-top: 250px;  /* Compense la hauteur du header */
 	margin-left: 230px; /* Compense la largeur de la navbar */
 	padding: 20px;
+=======
+    /* margin-top: 250px;  
+	margin-left: 230px;  */
+	padding: 50px 0;
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
     width: 1000px;
 }
 .grid-container_Pharmacies {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+<<<<<<< HEAD
     padding: 20px;
+=======
+    /* padding: 20px; */
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 }
 
 .grid-item_Pharmacies {

@@ -1,6 +1,11 @@
 .main-content_dashboard {
+<<<<<<< HEAD
 	margin-top: 10px;
 	margin-left: 240px;
+=======
+	margin-top: 70px;
+	/* margin-left: 240px; */
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	padding: 20px;
 
 }

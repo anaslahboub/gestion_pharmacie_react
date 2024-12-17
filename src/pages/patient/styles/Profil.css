@@ -8,8 +8,11 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .main-content_Profil {
+<<<<<<< HEAD
 	margin-top: 60px;  /* Compense la hauteur du header */
 	margin-left: 240px; /* Compense la largeur de la navbar */
+=======
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	padding: 20px;
 	
   }
@@ -22,23 +25,35 @@
 }
 
 /* Label et champ de saisie pour la pharmacie */
+<<<<<<< HEAD
 label {
+=======
+.profil-form-container label {
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	font-size: 16px;
 	color: #34495e;
 	margin-bottom: 8px;
 	display: block;
 }
 
+<<<<<<< HEAD
 input {
 	width: 90%;
 	padding: 10px;
 	margin-bottom: 15px;
 	margin-right: 15px;
+=======
+.profil-form-container input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
 	border: 1px solid #ddd;
 	border-radius: 5px;
 	font-size: 16px;
 }
 
+<<<<<<< HEAD
 #button_Profil {
 	background-color: red;
     display: block;
@@ -47,3 +62,21 @@ input {
 #button_Profil:hover{
     background-color: rgb(206, 25, 25);
 }
+=======
+.profil-form-container #button_Profil {
+	background-color: red;
+    color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	display: block;
+    margin: 0 auto;
+}
+.profil-form-container #button_Profil:hover{
+    background-color: rgb(206, 25, 25);
+}
+
+	
+>>>>>>> f1907c9c471c4ec830d862ede9e5ab3ea6023b30
