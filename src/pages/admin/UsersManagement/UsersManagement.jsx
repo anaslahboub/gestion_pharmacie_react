@@ -1,24 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './UsersManagement.css';
+import axios from 'axios';  // Make sure axios is imported
+import './UsersManagement.css';  // CSS import at the top level
 
 const UsersManagement = () => {
-  // Exemple de données des utilisateurs
-  const users = [
-    { id: 1, name: 'Karim Tadout', email: 'karim.tadout@example.com', phone: '123456789', address: '123 Rue Principale' },
-    { id: 2, name: 'Amina Laamiri', email: 'amina.laamiri@example.com', phone: '987654321', address: '456 Avenue Centrale' },
-    { id: 3, name: 'Youssef Haddad', email: 'youssef.haddad@example.com', phone: '1122334455', address: '789 Boulevard Sud' },
-  ];
+  const [patients, setPatients] = useState([]);  // State for storing patients
+
+  // Fetch patients on component mount
+  useEffect(() => {
+    const fetchPatients = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/pharmacie__API/api/admin/patients');
+        setPatients(response.data);  // Store fetched patients in state
+      } catch (error) {
+        console.error('Error fetching patients:', error);
+      }
+    };
+
+    fetchPatients();  // Call the function to fetch patients
+  }, []);
+
+  // Function to delete a patient
+  const handleDeletePatient = (id) => {
+    setPatients(patients.filter(patient => patient.id !== id));  // Remove the patient from the list
+  };
 
   return (
     <div className="users-management">
-      <h2>Gestion des Utilisateurs</h2>
-      <Link to="/admin/addUser" className="add-user">Ajouter un Utilisateur</Link>
+      <h2>Gestion des Patients</h2>
+      <Link to="/admin/addUser" className="add-user">Ajouter un patient</Link>
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Nom</th>
+            <th>Prénom</th>
             <th>Email</th>
             <th>Téléphone</th>
             <th>Adresse</th>
@@ -26,17 +42,29 @@ const UsersManagement = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.phone}</td>
-              <td>{user.address}</td>
+          {patients.map(patient => (
+            <tr key={patient.id}>
+              <td>{patient.id}</td>
+              <td>{patient.nom}</td>
+              <td>{patient.prenom}</td>
+              <td>{patient.email}</td>
+              <td>{patient.telephone}</td>
+              <td>{patient.localisation.nomMap}</td>
               <td>
-                {/* Lien dynamique vers la page de modification d'utilisateur avec l'ID de l'utilisateur */}
-                <Link to={`/admin/editusers`} className="btn">Modifier</Link>
-                <button className="btn btn-danger">Supprimer</button>
+                <Link 
+                  to={`/admin/editusers/${patient.id}`} 
+                  className="btn edit-user" 
+                  aria-label={`Modifier l'utilisateur ${patient.name} ${patient.prénom}`}
+                >
+                  VISUALISER
+                </Link>
+                <button 
+                  className="btn delete-user" 
+                  onClick={() => handleDeletePatient(patient.id)} 
+                  aria-label={`Supprimer l'utilisateur ${patient.name} ${patient.prénom}`}
+                >
+                  Supprimer
+                </button>
               </td>
             </tr>
           ))}
@@ -46,4 +74,4 @@ const UsersManagement = () => {
   );
 };
 
-export default UsersManagement;
+export default UsersManagement;  // Ensure export is here

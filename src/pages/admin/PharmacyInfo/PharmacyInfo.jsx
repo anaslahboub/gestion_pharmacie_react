@@ -1,97 +1,143 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './Pharmacyinfo.css/';
+import './Pharmacyinfo.css';
+
 const PharmacyInfo = () => {
-  const { id } = useParams();  // Récupère l'ID de la pharmacie à partir de l'URL
-  const navigate = useNavigate();  // Pour la navigation après modification
+  const { id } = useParams(); // Récupère l'ID de la pharmacie
+  const navigate = useNavigate(); // Pour naviguer après la soumission
+
   const [pharmacy, setPharmacy] = useState({
-    name: '',
-    address: '',
-    status: '',
+    localisation: {}, // Initialisation de localisation pour éviter undefined
   });
 
-  // Fonction pour charger les données de la pharmacie depuis l'API
+  // Liste des options de statut pour la pharmacie
+  const statusOptions = ['partenaire', 'non-partenaire'];
+  const fetchPharmacy = async () => {
+    try {
+      
+      const response = await fetch(`http://localhost:8080/pharmacie__API/api/admin/pharmacie/${id}`);
+      if (!response.ok) throw new Error('Erreur lors du chargement des données');
+      const data = await response.json();
+      setPharmacy(data);
+      console.log(response.data);
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+  // Charger les données de la pharmacie depuis l'API
   useEffect(() => {
-    // Remplacer par l'appel réel à votre API pour récupérer les informations de la pharmacie
-    fetch(`/api/pharmacies/${id}`)
-      .then((response) => response.json())
-      .then((data) => setPharmacy(data))
-      .catch((error) => console.error('Erreur lors du chargement des données:', error));
+    fetchPharmacy();
   }, [id]);
 
-  // Fonction de gestion de la soumission du formulaire
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Mettre à jour les données de la pharmacie via une API
-    fetch(`/api/pharmacies/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(pharmacy),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        alert('Pharmacie modifiée avec succès');
-        navigate('/admin/pharmaciesManagement');  // Redirige vers la gestion des pharmacies après modification
-      })
-      .catch((error) => console.error('Erreur lors de la modification de la pharmacie:', error));
-  };
-
-  // Fonction pour gérer les changements dans les champs du formulaire
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setPharmacy({
-      ...pharmacy,
-      [name]: value,
-    });
+  // Retourner à la liste des pharmacies
+  const handleGoBack = () => {
+    navigate('/admin/pharmaciesManagement');
   };
 
   return (
     <div>
       <h2>Modifier les informations de la pharmacie</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
+        {/* Champ pour le nom de la pharmacie */}
         <div>
-          <label htmlFor="name">Nom de la pharmacie :</label>
+          <label htmlFor="nom">Nom :</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={pharmacy.name}
-            onChange={handleChange}
-            required
+            id="nom"
+            name="nom"
+            value={pharmacy.nom || ''}  // Sécuriser l'accès avec une valeur par défaut
+            readOnly
+          />
+        </div>
+
+        {/* Champ pour le prénom */}
+        <div>
+          <label htmlFor="prenom">Prénom :</label>
+          <input
+            type="text"
+            id="prenom"
+            name="prenom"
+            value={pharmacy.prenom || ''}  // Sécuriser l'accès avec une valeur par défaut
+            readOnly
+          />
+        </div>
+
+        {/* Champ pour l'email */}
+        <div>
+          <label htmlFor="email">Email :</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={pharmacy.email || ''}  // Sécuriser l'accès avec une valeur par défaut
+            readOnly
+          />
+        </div>
+
+        {/* Champ pour le téléphone */}
+        <div>
+          <label htmlFor="telephone">Téléphone :</label>
+          <input
+            type="tel"
+            id="telephone"
+            name="telephone"
+            value={pharmacy.telephone || ''}  // Sécuriser l'accès avec une valeur par défaut
+            readOnly
+          />
+        </div>
+
+        {/* Champ select pour le statut */}
+        <div>
+          <label htmlFor="role">Statut :</label>
+          <input
+            type="text"
+            id="Statut"
+            name="Statut"
+            value={pharmacy.role || ''}  // Sécuriser l'accès avec une valeur par défaut
+            readOnly
+          />
+        </div>
+
+        {/* Champs pour la localisation */}
+        <div>
+  <label htmlFor="nomMap">Nom de la localisation :</label>
+  <input
+    type="text"
+    id="nomMap"
+    name="localisation.nomMap"
+    value={pharmacy.localistion ? pharmacy.localistion.nomMap : ''} // Vérification de l'existence de localisation
+    readOnly
+  />
+</div>
+
+<div>
+  <label htmlFor="latitude">Latitude :</label>
+  <input
+    type="text"
+    id="latitude"
+    name="localisation.latitude"
+    value={pharmacy.localistion ? pharmacy.localistion.latitude : ''} // Vérification de l'existence de localisation
+    readOnly
+  />
+</div>
+
+
+        <div>
+          <label htmlFor="longitude">Longitude :</label>
+          <input
+            type="text"
+            id="longitude"
+            name="localisation.longitude"
+            value={pharmacy.localistion ? pharmacy.localistion.longitude : ''} // Sécuriser l'accès avec une valeur par défaut
+            readOnly
           />
         </div>
 
         <div>
-          <label htmlFor="address">Adresse :</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={pharmacy.address}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="status">Statut :</label>
-          <select
-            id="status"
-            name="status"
-            value={pharmacy.status}
-            onChange={handleChange}
-            required
-          >
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
-        </div>
-
-        <div>
-          <button type="submit">Enregistrer les modifications</button>
+          <button type="button" onClick={handleGoBack} style={{ marginLeft: '10px' }}>
+            Retour à la liste des pharmacies
+          </button>
         </div>
       </form>
     </div>

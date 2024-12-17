@@ -1,113 +1,84 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
+import axios from 'axios';
 import './editusers.css';
 
-const EditUser = () => {
-  const { id } = useParams(); // Récupère l'ID de l'utilisateur à partir de l'URL
-  const navigate = useNavigate();
+const UsersManagement = () => {
+  const [patients, setPatients] = useState();
+const {id } = useParams() ;
 
-  // État local pour les données de l'utilisateur
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-  });
-
-  // Charger les données utilisateur
   useEffect(() => {
-    const fetchUser = async () => {
-      // Exemple : Données simulées (Remplacer avec un appel API)
-      const userData = {
-        1: { name: 'Karim', email: 'karim@example.com', phone: '1234567890', address: '123 Rue Principale' },
-        2: { name: 'Youssef', email: 'youssef@example.com', phone: '0987654321', address: '456 Avenue de la République' },
-        3: { name: 'Marouane', email: 'marouane@example.com', phone: '1122334455', address: '789 Rue des Collines' },
-      };
-
-      // Vérifie si l'utilisateur existe, puis charge les données
-      const userInfo = userData[id];
-      if (userInfo) {
-        setUser(userInfo);
-      } else {
-        // Si l'utilisateur n'est pas trouvé, rediriger ou afficher un message d'erreur
-        navigate('/admin/usersManagement');
+    const fetchPatients = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/pharmacie__API/api/admin/patient/${id}`);
+        setPatients(response.data);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des patients :', error);
       }
     };
 
-    fetchUser();
-  }, [id, navigate]);
+    fetchPatients();
+  }, [id]);
 
-  // Gestion des modifications du formulaire
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser(prevUser => ({
-      ...prevUser,
-      [name]: value,
-    }));
-  };
-
-  // Gestion de la soumission du formulaire
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Remplacez cette ligne par une requête API pour sauvegarder les modifications
-    console.log('Données mises à jour :', user);
-
-    // Rediriger vers la page UsersManagement après la mise à jour de l'utilisateur
-    navigate('/admin/usersManagement');
+  const handleDeletePatient = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8080/pharmacie__API/api/admin/patient/${id}`);
+      setPatients((prevPatients) => prevPatients.filter(patient => patient.id !== id));
+    } catch (error) {
+      console.error('Erreur lors de la suppression du patient :', error);
+    }
   };
 
   return (
-    <div>
-      <h2>Modifier l'Utilisateur</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nom :</label>
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Email :</label>
-          <input
-            type="email"
-            name="email"
-            value={user.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Téléphone :</label>
-          <input
-            type="tel"
-            name="phone"
-            value={user.phone}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Adresse :</label>
-          <input
-            type="text"
-            name="address"
-            value={user.address}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-save">Sauvegarder</button>
-        <button type="button" className="btn btn-cancel" onClick={() => navigate('/admin/usersManagement')}>
-          Annuler
+    <div className="users-management">
+      <h2>Gestion des Patients</h2>
+      <Link to="/admin/addUser" className="add-user">Ajouter un patient</Link>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Adresse</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+  {patients ? (
+    <tr>
+      <td>{patients.id}</td>
+      <td>{patients.nom}</td>
+      <td>{patients.prenom}</td>
+      <td>{patients.email}</td>
+      <td>{patients.telephone}</td>
+      <td>{patients.localisation ? patients.localisation.nomMap : 'Adresse inconnue'}</td>
+      <td>
+        
+        <button 
+          className="btn delete-user" 
+          onClick={() => handleDeletePatient(patients.id)} 
+          aria-label={`Supprimer l'utilisateur ${patients.nom} ${patients.prenom}`}
+        >
+          Supprimer
         </button>
-      </form>
+      </td>
+    </tr>
+  ) : (
+    <tr>
+      <td colSpan="7">Aucun patient trouvé.</td>
+    </tr>
+  )}
+</tbody>
+
+
+      </table>
+      <Link to="/admin/usersManagement" className="btn">
+        Retour à la liste des Patients
+      </Link>
     </div>
   );
 };
 
-export default EditUser;
+export default UsersManagement;

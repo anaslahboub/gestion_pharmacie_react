@@ -26,6 +26,7 @@ import PharmaciesPartenaires from '../pages/admin/PharmaciesPartenaires/Pharmaci
 import  UsersManagement from '../pages/admin/UsersManagement/UsersManagement';
 import EditUsers from '../pages/admin/editusers/EditUser';
 import AddUser from '../pages/admin/AddUser/AddUser';
+import AjouterPharmacie from '../pages/admin/ajouterpharmacie/Ajouterpharmacie';
 
 
 // import PharmacieDashboard from '../pages/pharmacien/Dashboard';
@@ -83,11 +84,12 @@ const AppRoutes = () => {
   <Route index element={<AdminDashboard />} />
   <Route path="dashboard" element={<AdminDashboard />} /> {/* Route spécifique */}
   <Route path="pharmaciesManagement" element={<Pharmaciemanagement />} />
-  <Route path="pharmacyInfo" element={<PharmacyInfo />} />
+  <Route path="pharmacyInfo/:id" element={<PharmacyInfo />} />
   <Route path="PharmaciesPartenaires" element={<PharmaciesPartenaires />} />
   <Route path="UsersManagement" element={<UsersManagement />} />
-  <Route path="editusers" element={<EditUsers />} />
+  <Route path="editusers/:id" element={<EditUsers />} />
   <Route path="AddUser" element={<AddUser />} />
+  <Route path="ajouterpharmacie" element={<AjouterPharmacie />} />
 
   
 </Route>

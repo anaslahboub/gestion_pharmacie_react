@@ -19,14 +19,14 @@ const Navbar = () => {
         className={location.pathname === "/admin/pharmaciesManagement"  ? "active" : ""}
       >
 
-           Pharmacies
+           Pharmacies Management 
        </NavLink>
        <NavLink
         to="/admin/UsersManagement"
         className={location.pathname === "/admin/UsersManagement"  ? "active" : ""}
       >
 
-            Users Management 
+            patients  Management 
        </NavLink>
        
        <NavLink
@@ -36,7 +36,7 @@ const Navbar = () => {
 
            pharmacies PARTENAIRE
        </NavLink>
-      
+       
     </div>
   );
 };
