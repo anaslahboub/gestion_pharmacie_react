@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom"; // Import NavLink pour une gestion plus simple
-import "../styles/style.css";
+import "../styles/style1.css";
 
 const Navbar = () => {
   const location = useLocation(); // Récupère l'URL actuelle
 
   return (
-    <div className="navbar">
+    <div className="navbar1">
       <h2>Administration </h2>
       <NavLink
         to="/admin/Dashboard"

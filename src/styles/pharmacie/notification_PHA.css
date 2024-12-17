@@ -1,0 +1,53 @@
+    /* Contenu principal */
+  .main-content {
+	padding: 32px;
+	margin-top: 80px;
+	display: flex;
+	justify-content: center;
+  }
+  
+  .notification-card {
+	background-color: #ffffff;
+	padding: 24px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 800px;
+  }
+  
+  .notification-title {
+	font-size: 1.75rem;
+	font-weight: bold;
+	color: #2d3748;
+  }
+  
+  .notification-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .notification-item {
+	background-color: #edf2f7;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+	padding: 16px;
+  }
+  
+  .mark-as-read {
+	background: transparent;
+	border: 1px solid #3182ce;
+	color: #3182ce;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  .mark-as-read:hover {
+	background-color: #63b3ed;
+  }
+  .notification-item.read {
+	background-color: #d3d3d3;
+  }
+  
+ 

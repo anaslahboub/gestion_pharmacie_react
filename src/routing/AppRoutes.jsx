@@ -3,10 +3,34 @@ import { Routes, Route } from 'react-router-dom';
 
 // Layouts
 import PatientLayout from '../layouts/PatientLayout';
-import AdminLayout from '../layouts/AdminLayout';
-// import PharmacieLayout from '../layouts/PharmacieLayout';
+//import AdminLayout from '../layouts/AdminLayout';
+import PharmacieLayout from '../layouts/PharmacieLayout';
+//import admin routes;
+//import AdminDashboard from '../pages/admin/Dashboard';
+import AdminLayout from'../layouts/AdminLayout';
+import AdminDashboard from '../pages/admin/Dashboard/Dashbord';
+import Pharmaciemanagement from '../pages/admin/PharmaciesManagement/PharmaciesManagement';
+import PharmacyInfo from '../pages/admin/PharmacyInfo/PharmacyInfo';
+import PharmaciesPartenaires from '../pages/admin/PharmaciesPartenaires/PharmaciesPartenaires';
+import  UsersManagement from '../pages/admin/UsersManagement/UsersManagement';
+import EditUsers from '../pages/admin/editusers/EditUser';
+import AjouterPharmacie from '../pages/admin/ajouterpharmacie/Ajouterpharmacie';
 
-// Pages spécifiques
+
+
+// Pages spécifiques pour chaque utilisateur
+import PharmacieDashboard from '../pages/pharmacie/dashbord_PHA';
+import Login from '../pages/Login';
+import Accueil from '../pages/accueil';
+import Commande from '../pages/pharmacie/commande_PHA';
+import AddPharmacy from '../pages/pharmacie/addPharmacy';
+import DetailOrdonnance from '../pages/pharmacie/detailOrdannace';
+import Notification from '../pages/pharmacie/notification_PHA';
+import Ordonnonce from '../pages/pharmacie/ordonnonce_PHA';
+import Profile from '../pages/pharmacie/profile_PHA';
+import DetailCommande from '../pages/pharmacie/detailCommande'
+
+//marwan import :
 
 import NouvelleOrdonnance from '../pages/patient/NouvelleOrdonnance';
 import PatientDashboard from '../pages/patient/Dashboard';
@@ -18,31 +42,15 @@ import PharmaciesProches from '../pages/patient/PharmaciesProches'
 import DetailsOrdonnance from '../pages/patient/DetailsOrdonnance'
 import DetailsCommande from '../pages/patient/DetailsCommande'
 import CreateAccount from '../pages/patient/CreateAccount'
-//import AdminDashboard from '../pages/admin/Dashboard';
-import AdminDashboard from '../pages/admin/Dashboard/Dashbord';
-import Pharmaciemanagement from '../pages/admin/PharmaciesManagement/PharmaciesManagement';
-import PharmacyInfo from '../pages/admin/PharmacyInfo/PharmacyInfo';
-import PharmaciesPartenaires from '../pages/admin/PharmaciesPartenaires/PharmaciesPartenaires';
-import  UsersManagement from '../pages/admin/UsersManagement/UsersManagement';
-import EditUsers from '../pages/admin/editusers/EditUser';
-import AddUser from '../pages/admin/AddUser/AddUser';
-import AjouterPharmacie from '../pages/admin/ajouterpharmacie/Ajouterpharmacie';
-
-
-// import PharmacieDashboard from '../pages/pharmacien/Dashboard';
-import Login from '../pages/Login';
-import Acceuil from '../pages/accueil';
-import ProtectedRoute from "./ProtectedRoute";
-
-
 
 const AppRoutes = () => {
-    const isAuthenticated = !!localStorage.getItem("userToken"); // Exemple : vérifier si un token existe
+   
 
     return (
         <Routes>
             {/* Route principale */}
-            <Route path="/" element={<Acceuil />} />
+            <Route path="/" element={<Accueil />} />
+            
 
             {/* Routes de connexion */}
             <Route path="/:role/login" element={<Login />} />
@@ -75,11 +83,11 @@ const AppRoutes = () => {
             <Route path="/patient/DetailsOrdonnance" element={<PatientLayout />}>
                 <Route index element={<DetailsOrdonnance />} />
             </Route>
-            <Route path="/patient/DetailsCommande" element={<PatientLayout />}>
+            <Route path="/patient/DetailsCommande/:id" element={<PatientLayout />}>
                 <Route index element={<DetailsCommande />} />
             </Route>
             
-
+            {/* Espace Admin */}
             <Route path="/admin" element={<AdminLayout />}>
   <Route index element={<AdminDashboard />} />
   <Route path="dashboard" element={<AdminDashboard />} /> {/* Route spécifique */}
@@ -88,18 +96,30 @@ const AppRoutes = () => {
   <Route path="PharmaciesPartenaires" element={<PharmaciesPartenaires />} />
   <Route path="UsersManagement" element={<UsersManagement />} />
   <Route path="editusers/:id" element={<EditUsers />} />
-  <Route path="AddUser" element={<AddUser />} />
   <Route path="ajouterpharmacie" element={<AjouterPharmacie />} />
 
-  
-</Route>
 
-            
+</Route>
+            {/* <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<AdminDashboard />} />
+            </Route> */}
 
             {/* Espace Pharmacien */}
-            {/* <Route path="/pharmacien" element={<PharmacieLayout />}>
-                <Route index element={<PharmacieDashboard />} />
-            </Route> */}
+           {/* Layout Pharmacie */}
+          <Route path="/pharmacie" element={<PharmacieLayout />}>
+              {/* Dashboard Pharmacie */}
+              <Route index element={<PharmacieDashboard />} />
+              <Route path="dashboard" element={<PharmacieDashboard />} />
+              <Route path="commande" element={<Commande />} />
+              <Route path="addPharmacy" element={<AddPharmacy />} />
+              <Route path="detailOrdonnance/:id" element={<DetailOrdonnance />} />
+              <Route path="notification" element={<Notification />} />
+              <Route path="ordonnonce" element={<Ordonnonce />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="forms" element={<Login />} />*
+              <Route path="detailCommande/:id" element={<DetailCommande />} />
+            
+          </Route>
         </Routes>
     );
 };

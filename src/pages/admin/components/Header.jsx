@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef, useState, useEffect } from "react";
 import { useNavigate,useLocation} from "react-router-dom";
-import "../styles/style.css";
+import "../styles/style1.css";
 const Header = () => {
   const [isLogoutVisible, setIsLogoutVisible] = useState(false);
   const profileImageRef = useRef(null);
@@ -30,20 +30,20 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="header">
+    <div className="header1">
       <h1>Bon Rétablissement !</h1>
-      <div className="user-info">
+      <div className="user-info1">
         <img
           src="../src/assets/images/admin.png"
           alt="Profil"
-          id="profileImage"
+          id="profileImage1"
           ref={profileImageRef}
           onClick={() => setIsLogoutVisible(!isLogoutVisible)}
         />
         {isLogoutVisible && (
-          <div id="logoutSection" ref={logoutRef}>
+          <div id="logoutSection1" ref={logoutRef}>
             <p>Voulez-vous vraiment vous déconnecter ?</p>
-            <button id="logoutButton" onClick={() => navigate(`/${role}/Login`)}>Se Déconnecter</button>
+            <button id="logoutButton1" onClick={() => navigate(`/${role}/Login`)}>Se Déconnecter</button>
           </div>
         )}
         <span>Bonjour, administrateur</span>

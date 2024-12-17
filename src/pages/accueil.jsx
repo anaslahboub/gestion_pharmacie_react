@@ -12,17 +12,17 @@ const Acceuil = () => {
         <div className="wrapper">
             <h1>Vous êtes</h1>
             <div className="container">
-                <div className="card" onClick={() => handleChoice("admin")}>
+                <div className="card-accueil" onClick={() => handleChoice("admin")}>
                     <img src="./src/assets/images/admin.png" alt="Admin" />
                     <h2>Admin</h2>
                     <p>Gérez les utilisateurs et les configurations.</p>
                 </div>
-                <div className="card" onClick={() => handleChoice("patient")}>
+                <div className="card-accueil" onClick={() => handleChoice("patient")}>
                     <img src="./src/assets/images/patient.png" alt="Patient" />
                     <h2>Patient</h2>
                     <p>Consultez vos prescriptions et vos ordonnances.</p>
                 </div>
-                <div className="card" onClick={() => handleChoice("pharmacien")}>
+                <div className="card-accueil" onClick={() => handleChoice("pharmacien")}>
                     <img src="./src/assets/images/pharmacist.png" alt="Pharmacien" />
                     <h2>Pharmacien</h2>
                     <p>Gérez les ordonnances et créer les commandes.</p>
