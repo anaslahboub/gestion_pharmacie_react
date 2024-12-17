@@ -9,7 +9,7 @@ const DetailsCommande = () => {
   const [commande, setCommande] = useState(null); // Stocker l'objet commande
   const [loading, setLoading] = useState(true); // Indiquer si les données sont en cours de chargement
   const [error, setError] = useState(null); // Gestion des erreurs
-
+   const [ph,setPH]=useState();
   const { id } = useParams();
 
   // Fonction pour récupérer les commandes
@@ -17,6 +17,7 @@ const DetailsCommande = () => {
     try {
       const response = await axios.get(`http://localhost:8080/pharmacie__API/api/patient/commande/${id}`);
       setCommande(response.data);
+      setPH(`data:image/png;base64,${response.data.ordonnance.photo}`);
     } catch (err) {
       setError("Une erreur est survenue lors de la récupération des données.");
     } finally {
@@ -81,13 +82,15 @@ const DetailsCommande = () => {
     <p>
       <i className="fas fa-comment-alt"></i> <strong>Commentaire :</strong> {commande.commentaire || "Aucun commentaire"}
     </p>
-    <div className="ordonnance-photo_commande">
+   
+  </div>
+  <div className="ordonnance-photo_commande">
       <p>
         <i className="fas fa-image"></i> <strong>Image de l'ordonnance :</strong>
       </p>
       {commande.ordonnance.photo ? (
         <img
-          src={"/src/assets/pharmacieImage/pharmacie-1024x620.jpg" || commande.ordonnance.photo}
+          src={ph || "/src/assets/pharmacieImage/pharmacie-1024x620.jpg" }
           alt="Ordonnance"
           id="profileImage"
           onClick={() => handleImageClick(commande.ordonnance.photo)} // Ouvre l'image en grand au clic
@@ -96,13 +99,12 @@ const DetailsCommande = () => {
         <p>Aucune image disponible.</p>
       )}
     </div>
-  </div>
 
   {/* Modale pour afficher l'image en grand */}
   {isImageOpen && (
     <div className="image-modal_commande" onClick={handleCloseModal}>
       <div className="image-modal-content_commande">
-        <img src={ imageSrc} alt="Ordonnance en grand" />
+        <img src={ ph} alt="Ordonnance en grand" />
       </div>
     </div>
   )}

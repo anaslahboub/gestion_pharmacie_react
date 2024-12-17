@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-;
+
 
 function Dashboard_PHA() {
   const [accepter ,setAccepter]=useState();
@@ -14,7 +14,11 @@ function Dashboard_PHA() {
   const [encours ,setEncours]=useState();
   const [orders, setOrdonnances] = useState([]);
 
-  const idPharmacien=2;
+  //const [imageBase64, setImageBase64] = useState("");
+  
+
+  //const idPharmacien=2;
+  const idPharmacien=localStorage.getItem("idPharmacien");
   
 
 const stats = [
@@ -42,7 +46,9 @@ const stats = [
    
       const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnances/${idPharmacien}`);
       const recentOrders = response.data.slice(-3);
+     
       setOrdonnances(recentOrders);
+      
   };
 
   useEffect(()=>{
@@ -73,11 +79,13 @@ const stats = [
         <div className="orders-grid">
           {orders.map((order, index) => (
             <div className="order-card" key={index}>
+              
               <img
-                alt={`Image de l'ordonnance de ${order.nom}`}
-                className="order-image"
-                src="/src/assets/pharmacieImage/pharmacie-1024x620.jpg"
-              />
+                  alt={`Image de l'ordonnance de ${order.nom}`}
+                  className="order-image"
+                  src={order.photo ? `data:image/png;base64,${order.photo}` : "/src/assets/pharmacieImage/pharmacie-1024x620.jpg"}
+                />
+
               <h3 className="order-name"><i className="fas fa-user"></i>{order.patient.nom}</h3>
               <p className="order-id"><i className="fas fa-id-card"></i>ID: {order.id}</p>
               <p className="order-date"><i className="fas fa-calendar-alt"></i>Date: {order.dateEnvoie}</p>

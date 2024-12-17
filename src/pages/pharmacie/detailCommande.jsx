@@ -9,12 +9,14 @@ function DetailCommande() {
   const [commande ,setCommande] =useState([]);
   
   const [statutCommande,setStatutCommande] = useState();
+  const [ph,setPH]=useState();
 
   useEffect(() => {
     const fetchCommande = async () => {
         try {
             const resp = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/commande/${id}`);
             setCommande(resp.data);
+            setPH(`data:image/png;base64,${resp.data.ordonnance.photo}`);
         } catch (error) {
             console.error("Erreur lors de la récupération de la commande :", error);
         }
@@ -89,7 +91,7 @@ const handleNotifier = async () => {
       <div className="commande_image">
         <img
           alt={`Image de l'ordonnance de ${commande?.ordonnance?.patient?.nom}`}
-          src={"/src/assets/pharmacieImage/pharmacie-1024x620.jpg" || commande.statut}
+          src={ph ||  "/src/assets/pharmacieImage/pharmacie-1024x620.jpg"}
           className="commande-detail-image"
         />
       </div>

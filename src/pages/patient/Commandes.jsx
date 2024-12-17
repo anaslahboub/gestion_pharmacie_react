@@ -31,8 +31,7 @@ const Commandes = () => {
               alt={`Image de l'ordonnance de ${commande.ordonnance.patient.nom}`}
               className="patient-commande-image"
               src={
-                commande.image ||
-                "/src/assets/pharmacieImage/pharmacie-1024x620.jpg"
+                commande.ordonnance.photo ? `data:image/png;base64,${commande.ordonnance.photo}` : "/src/assets/pharmacieImage/pharmacie-1024x620.jpg"
               }
             />
             <h3 className="patient-commande-name">

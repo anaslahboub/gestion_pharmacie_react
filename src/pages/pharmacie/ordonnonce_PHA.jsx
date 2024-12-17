@@ -65,7 +65,8 @@ function Ordonnances_PHA() {
         <div className="card-grid">
           {ordonnances.map((ordonnance) => (
             <div className="card-item" key={ordonnance.id}>
-              <img className="card-img" src={"/src/assets/pharmacieImage/pharmacie-1024x620.jpg" ||ordonnance.imagePath} alt={`Image de l'ordonnance de ${ordonnance.name}`} />
+              <img className="card-img" 
+              src={ordonnance.photo ? `data:image/png;base64,${ordonnance.photo}` : "/src/assets/pharmacieImage/pharmacie-1024x620.jpg"}alt={`Image de l'ordonnance de ${ordonnance.name}`} />
               <h3 className="card-name"> <i className="fas fa-user"></i>  {ordonnance.patient.nom} {ordonnance.patient.prenom}</h3>
               <p className="card-text">  <i className="fas fa-id-card"></i> ID: {ordonnance.id}</p>
               <p className="card-text">  <i className="fas fa-calendar-alt"></i> Date: {ordonnance.dateEnvoie}</p>

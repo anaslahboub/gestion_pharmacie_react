@@ -13,12 +13,14 @@ function DetailOrdonnance() {
   const [medicaments, setMedicaments] = useState([{ name: "", price: "" }]);  // Liste des médicaments
   const [montantTotal , setMontantTotal] = useState(0); // État pour le montant total
   const [commStatus,setCommStatus] =useState();
+  const [ph,setPH]=useState();
   useEffect(() => {
     const fetchOrdonnance = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/pharmacie__API/api/pharmacien/ordonnance/${id}`);
         setOrder(response.data); 
         setLoading(false);
+        setPH(`data:image/png;base64,${response.data.photo}`);
       } catch (err) {
         console.error("Erreur lors de la récupération de l'ordonnance :", err);
         setError("Impossible de récupérer les détails de l'ordonnance.");
@@ -105,7 +107,7 @@ function DetailOrdonnance() {
     <div className="cardd">
       <h2 className="card-title">Détails de l'Ordonnance</h2>
       <div className="order-details">
-        <img  src={ "/src/assets/pharmacieImage/pharmacie-1024x620.jpg" || order.imagePath}  alt={`Ordonnance de ${order.patient?.nom || "Inconnu"}`}  className="order-img"/>
+        <img  src={ph || "/src/assets/pharmacieImage/pharmacie-1024x620.jpg" }  alt={`Ordonnance de ${order.patient?.nom || "Inconnu"}`}  className="order-img"/>
         <label htmlFor="order-title">Nom de Patient :
           <h3 className="order-title">{order.patient?.nom} {order.patient?.prenom}</h3>
         </label>

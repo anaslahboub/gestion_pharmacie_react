@@ -39,7 +39,10 @@ function CommandePHA() {
         <div className="commande-grid">
           {commandes.map((commande) => (
             <div key={commande.id} className="commande-cardd">
-              <img alt={`Image de l'ordonnance de ${commande.ordonnance.patient.nom}`} className="commande-image"   src={"/src/assets/pharmacieImage/pharmacie-1024x620.jpg" ||commande.ordonnance.patient.nom} />
+              <img alt={`Image de l'ordonnance de ${commande.ordonnance.patient.nom}`} className="commande-image"
+                 src={commande.ordonnance.photo ? `data:image/png;base64,${commande.ordonnance.photo}` : "/src/assets/pharmacieImage/pharmacie-1024x620.jpg"}/>
+                 
+              
               <h3 className="commande_name"> <i className="fas fa-user"></i>  {commande.ordonnance.patient.nom} {commande.ordonnance.patient.prenom}  </h3>
               <p className="commande_info"> <i className="fas fa-id-card"></i> ID: {commande.id}</p>
               <p className="commande_info"> <i className="fas fa-calendar-alt"> </i> Date de realisation : {commande.dateRealisation}</p>
