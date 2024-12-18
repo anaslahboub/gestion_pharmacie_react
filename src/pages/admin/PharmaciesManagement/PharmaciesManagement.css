@@ -5,7 +5,7 @@
   
 }
   h2 {
-    color: #4caf50;
+    color: #345372;
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -29,7 +29,7 @@ table {
   }
   
   th {
-    background-color: #4caf50;
+    background-color: #345372;
     color: white;
     font-weight: bold;
     text-transform: uppercase;
@@ -49,7 +49,7 @@ table {
   
   /* Boutons */
   .btn {
-    background-color: #4caf50;
+    background-color: #345372;
     color: white;
     text-decoration: none;
     padding: 10px 15px;

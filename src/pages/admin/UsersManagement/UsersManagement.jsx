@@ -19,11 +19,16 @@ const UsersManagement = () => {
 
     fetchPatients();  // Call the function to fetch patients
   }, []);
-
-  // Function to delete a patient
-  const handleDeletePatient = (id) => {
-    setPatients(patients.filter(patient => patient.id !== id));  // Remove the patient from the list
+  const deleteuser = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:8080/pharmacie__API/api/admin/deleteuser/${id}`, 
+      { method: "DELETE" });
+      console.log(`supression du patient avec id : ${id} .`);
+    } catch (error) {
+      console.error('Erreur lors du supression de patient :', error);
+    }
   };
+  
 
   return (
     <div className="users-management">
@@ -60,8 +65,7 @@ const UsersManagement = () => {
                 </Link>
                 <button 
                   className="btn delete-user" 
-                  onClick={() => handleDeletePatient(patient.id)} 
-                  aria-label={`Supprimer l'utilisateur ${patient.name} ${patient.prénom}`}
+                  onClick={() => deleteuser(patient.id)} 
                 >
                   Supprimer
                 </button>

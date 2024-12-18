@@ -78,7 +78,7 @@ const AjouterPharmacie = () => {
           </select>
         </div>
 
-        <div>
+        <div className='btn-submit'>
           <button type="submit">Ajouter la pharmacie</button>
           <button
             type="button"

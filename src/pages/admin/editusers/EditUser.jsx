@@ -22,7 +22,7 @@ const {id } = useParams() ;
 
   const handleDeletePatient = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/pharmacie__API/api/admin/patient/${id}`);
+      await axios.delete(`http://localhost:8080/pharmacie__API/api/admin/deleteuser/${id}`);
       setPatients((prevPatients) => prevPatients.filter(patient => patient.id !== id));
     } catch (error) {
       console.error('Erreur lors de la suppression du patient :', error);
@@ -53,16 +53,15 @@ const {id } = useParams() ;
       <td>{patients.prenom}</td>
       <td>{patients.email}</td>
       <td>{patients.telephone}</td>
-      <td>{patients.localisation ? patients.localisation.nomMap : 'Adresse inconnue'}</td>
+      <td>{patients.localisation.nomMap}</td>
       <td>
         
-        <button 
-          className="btn delete-user" 
-          onClick={() => handleDeletePatient(patients.id)} 
-          aria-label={`Supprimer l'utilisateur ${patients.nom} ${patients.prenom}`}
-        >
-          Supprimer
-        </button>
+      <button 
+                  className="btn delete-user" 
+                  onClick={() => handleDeletePatient(patients.id)} 
+                >
+                  Supprimer
+                </button>
       </td>
     </tr>
   ) : (

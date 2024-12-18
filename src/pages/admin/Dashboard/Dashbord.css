@@ -25,7 +25,7 @@ h1 {
   flex: 1;
   padding: 20px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #28a745, #66c76b); /* Vert clair */
+  background: linear-gradient(135deg,#345372, #2C3E50); /* Vert clair */
   color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -71,7 +71,7 @@ h1 {
 .card p {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #28a745; /* Vert */
+  color: #345372; /* Vert */
 }
 
 .card.non-partner p {
