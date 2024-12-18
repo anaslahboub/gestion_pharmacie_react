@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./styles/Profil.css";
+import "./styles/Profil.css"; // Make sure to include the styles below
 
 const Profil = () => {
   const [formData, setFormData] = useState({
@@ -12,11 +12,13 @@ const Profil = () => {
   });
 
   const [error, setError] = useState(""); // Gestion des erreurs
+  const [showPassword, setShowPassword] = useState(false); // Toggle for password visibility
   const patientId = localStorage.getItem("patientId");
+
   // Charger les données initiales depuis le serveur
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/pharmacie__API/api/patient/profil?patientId=${patientId}`) // Remplacez 1 par l'ID du patient connecté
+      .get(`http://localhost:8080/pharmacie__API/api/patient/profil?patientId=${patientId}`)
       .then((response) => {
         setFormData(response.data);
       })
@@ -38,10 +40,10 @@ const Profil = () => {
     event.preventDefault();
     const confirmation = window.confirm("Voulez-vous vraiment mettre à jour le profil ?");
   
-  if (!confirmation) {
-    // Si l'utilisateur annule, ne pas envoyer la requête
-    return;
-  }
+    if (!confirmation) {
+      // Si l'utilisateur annule, ne pas envoyer la requête
+      return;
+    }
     if (!formData.nom || !formData.prenom || !formData.telephone || !formData.email) {
       setError("Tous les champs doivent être remplis !");
       return;
@@ -102,13 +104,21 @@ const Profil = () => {
           />
 
           <label htmlFor="password">Mot de passe :</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
+          <div className="password-input-container">
+            <input
+              type={showPassword ? "text" : "password"} // Toggle input type
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <span
+              className="password-toggle-icon"
+              onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+            >
+              {showPassword ? "🙈" : "👁️"} {/* Eye icons */}
+            </span>
+          </div>
 
           <button id="button_Profil" type="submit">Modifier</button>
         </form>

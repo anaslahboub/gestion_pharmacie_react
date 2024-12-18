@@ -16,6 +16,7 @@ const DetailsCommande = () => {
   const fetchCommandes = async () => {
     try {
       const response = await axios.get(`http://localhost:8080/pharmacie__API/api/patient/commande/${id}`);
+      console.log(response.data);
       setCommande(response.data);
       setPH(`data:image/png;base64,${response.data.ordonnance.photo}`);
     } catch (err) {

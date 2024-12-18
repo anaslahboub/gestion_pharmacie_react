@@ -70,15 +70,15 @@ const CreateAccount = () => {
           email: formData.email,
           telephone: formData.telephone,
           password: formData.password,
-          localisation: formData.localisation,
-          
+          localisation: formData.localisation
         }
       );
-
+      console.log(response.data)
       setSuccessMessage(response.data);
       setErrorMessage("");
     } catch (error) {
       if (error.response) {
+        console.log(error.response.data)
         setErrorMessage(error.response.data);
       } else {
         setErrorMessage("Erreur lors de l'inscription. Veuillez réessayer.");

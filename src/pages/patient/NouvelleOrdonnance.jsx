@@ -105,7 +105,7 @@ const NouvelleOrdonnance = () => {
             {pharmacies.length > 0 ? (
               pharmacies.map((pharmacie) => (
                 <option key={pharmacie.id} value={pharmacie.id}>
-                  {pharmacie.nomMap} {/* Afficher le nom de la pharmacie */}
+                  {pharmacie.nom} {/* Afficher le nom de la pharmacie */}
                 </option>
               ))
             ) : (

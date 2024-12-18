@@ -60,10 +60,10 @@ const DetailsOrdonnance = () => {
         <div className="ordonnance-header">
           <h2>Ordonnance {ordonnance.id} :</h2>
           <p>
-            <strong>Date :</strong> {formatDate(ordonnance.date)}
+            <strong>Date :</strong> {formatDate(ordonnance.dateEnvoie)}
           </p>
           <p>
-            <strong>Pharmacien :</strong> {ordonnance.pharmacienNom}
+            <strong>Pharmacien :</strong> {ordonnance.pharmacien.nom}
           </p>
           <p>
             <strong>Statut :</strong> {ordonnance.statut}

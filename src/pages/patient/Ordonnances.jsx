@@ -51,7 +51,7 @@ const Ordonnances = () => {
         ordonnances.map((ordonnance) => (
           <div className="ordonnance-card" key={ordonnance.id}>
             <h3>Ordonnance {ordonnance.id}</h3>
-            <p>Date : {formatDate(ordonnance.date)}</p>
+            <p>Date : {formatDate(ordonnance.dateEnvoie)}</p>
             <p>Statut : {ordonnance.statut}</p>
             <button onClick={() => navigate(`/patient/DetailsOrdonnance?id=${ordonnance.id}`)}>
               Voir détails

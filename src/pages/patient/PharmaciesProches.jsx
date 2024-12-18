@@ -88,9 +88,9 @@ const PharmaciesProches = () => {
 
       pharmacies.forEach((pharmacy) => {
 
-        const marker = L.marker([pharmacy.latitude, pharmacy.longitude]).addTo(leafletMapRef.current);
+        const marker = L.marker([pharmacy.localistion.latitude, pharmacy.localistion.longitude]).addTo(leafletMapRef.current);
         marker.bindPopup(
-          `<h3>${pharmacy.nomMap}</h3><p>Status: ${pharmacy.isActive}</p><p>Distance: ${calculateDistance(pharmacy.latitude, pharmacy.longitude, localisation.latitude, localisation.longitude).toFixed(2)} km</p>`
+          `<h3>${pharmacy.localistion.nomMap}</h3><p>Status: ${pharmacy.isActive}</p><p>Distance: ${calculateDistance(pharmacy.localistion.latitude, pharmacy.localistion.longitude, localisation.latitude, localisation.longitude).toFixed(2)} km</p>`
         );
         markersRef.current.push({ marker, pharmacy });
       });
@@ -104,10 +104,10 @@ const PharmaciesProches = () => {
 
   const filterPharmacies = () => {
     markersRef.current.forEach(({ marker, pharmacy }) => {
-      const matchesName = pharmacy.nomMap.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesName = pharmacy.localistion.nomMap.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesStatus =
         !statusFilter || (statusFilter === "active" && pharmacy.isActive) || (statusFilter === "inactive" && !pharmacy.isActive);
-      const matchesDistance = !distanceFilter ||  calculateDistance(pharmacy.latitude, pharmacy.longitude, localisation.latitude, localisation.longitude).toFixed(2) <= parseInt(distanceFilter, 10);
+      const matchesDistance = !distanceFilter ||  calculateDistance(pharmacy.localistion.latitude, pharmacy.longitude, localisation.latitude, localisation.longitude).toFixed(2) <= parseInt(distanceFilter, 10);
 
       if (matchesName && matchesStatus && matchesDistance) {
         marker.addTo(leafletMapRef.current);
