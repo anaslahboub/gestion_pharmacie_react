@@ -1,73 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+  import React, { useState, useEffect } from 'react';
+  import { Link } from 'react-router-dom';
+  import axios from 'axios';
 
-import './PharmaciesManagement.css';
+  import './PharmaciesManagement.css';
 
-  
-function PharmaciesManagement() {
-  const [pharmacies , setPharmacies]= useState([]);
+    
+  function PharmaciesManagement() {
+    const [pharmacies , setPharmacies]= useState([]);
 
-  useEffect(() => {
-    const fetchPharmacies = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/pharmacie__API/api/admin/pharmacies`);
-        setPharmacies(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error fetching pharmacies:', error);
-      }
-    };
+    useEffect(() => {
+      const fetchPharmacies = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8080/pharmacie__API/api/admin/pharmacies`);
+          setPharmacies(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching pharmacies:', error);
+        }
+      };
 
-    fetchPharmacies();
-  }, []);
+      fetchPharmacies();
+    }, []);
 
-  // Désactiver une pharmacie
-  const handleDisable = (id) => {
-    if (window.confirm('Êtes-vous sûr de vouloir désactiver cette pharmacie ?')) {
-      console.log(`Désactivation de la pharmacie avec l'ID: ${id}`);
-      // Logique de désactivation (par exemple, appel API)
-      setPharmacies(pharmacies.map(pharmacy => 
-        pharmacy.id === id ? { ...pharmacy, status: 'Désactivée' } : pharmacy
-      ));
-    }
-  };
+    const changerPharmacieStatus = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:8080/pharmacie__API/api/admin/pharmacie/${id}/changer`, 
+    { method: "PUT" });
+    console.log(`Statut de la pharmacie avec ID ${id} modifié.`);
+  } catch (error) {
+    console.error('Erreur lors du changement du statut de la pharmacie:', error);
+  }
+};
 
-  return (
-    <div>
-      <h2>Liste des Pharmacies</h2>
-      <Link to={`/admin/ajouterpharmacie`} className="btn">Ajouter une Pharmacie</Link>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>PréNom</th>
 
-            <th>Adresse</th>
-            <th>Statut</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pharmacies.map((pharmacy) => (
-            <tr key={pharmacy.id}>
-              <td>{pharmacy.id}</td>
-              <td>{pharmacy.nom}</td>
-              <td>{pharmacy.nom}</td>
+    // Désactiver une pharmacie
+   const handleDisable = (id) => {
+    changerPharmacieStatus(id);
+};
 
-              <td>{pharmacy.localistion.nomMap}</td>
-              <td> {pharmacy.isPartner}</td>
-              <td>
-                <Link to={`/admin/pharmacyInfo/${pharmacy.id}`} className="btn">VISUAISER</Link>
-                <a href="#" className="btn" onClick={() => handleDisable(pharmacy.id)}>Désactiver</a>
-              </td>
+
+    return (
+      <div className='manager-countainer'>
+        <h2>Liste des Pharmacies</h2>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>PréNom</th>
+
+              <th>Adresse</th>
+              <th>Statut</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+          </thead>
+          <tbody>
+            {pharmacies.map((pharmacy) => (
+              <tr key={pharmacy.id}>
+                <td>{pharmacy.id}</td>  
+                <td>{pharmacy.nom}</td>
+                <td>{pharmacy.nom}</td>
 
-export default PharmaciesManagement;
+                <td>{pharmacy.localistion.nomMap}</td>
+                <td> {pharmacy.isPartner}</td>
+                <td>
+                  <Link to={`/admin/pharmacyInfo/${pharmacy.id}`} className="btn">VISUAISER</Link>
+                 <button type='button' className="btn btn-status" onClick={() => handleDisable(pharmacy.id)}>Changer</button>
+
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  export default PharmaciesManagement;

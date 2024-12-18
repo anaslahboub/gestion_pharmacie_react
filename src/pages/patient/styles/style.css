@@ -1,19 +1,16 @@
 /* Corps global */
-body {
+/* body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	background-color: #f4f6f8;
-  }
+  } */
   
   /* Navbar */
   .navbar {
 	width: 220px;
 	height: 100vh;
 	background-color: #2C3E50;
-	/* position: fixed; */
-	top: 0;
-	left: 0;
 	padding-top: 20px;
 	color: white;
 	z-index: 1000;
@@ -45,19 +42,15 @@ body {
 	
 	/* Header */
 	.header {
-		/* position: fixed; 
-		
-		left: 220px; Décalage pour la Navbar */
 		width: calc(98%);
-		top: 0;
 		height: 60px;
-		padding: 20px;
+		padding: 0 20px;
 		background-color: #ffffff;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		border-bottom: 1px solid #ddd;
-		z-index: 1000; /* Place le header au-dessus des autres éléments */
+		z-index: 1000; 
 	}
 	
 	.header h1 {

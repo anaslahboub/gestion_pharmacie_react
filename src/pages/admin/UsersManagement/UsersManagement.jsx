@@ -28,7 +28,7 @@ const UsersManagement = () => {
   return (
     <div className="users-management">
       <h2>Gestion des Patients</h2>
-      <Link to="/admin/addUser" className="add-user">Ajouter un patient</Link>
+      
       <table>
         <thead>
           <tr>
