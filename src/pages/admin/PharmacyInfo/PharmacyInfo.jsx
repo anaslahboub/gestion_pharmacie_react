@@ -36,11 +36,11 @@ const PharmacyInfo = () => {
   };
 
   return (
-    <div>
+    <div className='info-countainer'>
       <h2>Modifier les informations de la pharmacie</h2>
-      <form>
+      <form className='form-info'>
         {/* Champ pour le nom de la pharmacie */}
-        <div>
+        <div className='form-group-info'>
           <label htmlFor="nom">Nom :</label>
           <input
             type="text"
@@ -52,7 +52,7 @@ const PharmacyInfo = () => {
         </div>
 
         {/* Champ pour le prénom */}
-        <div>
+        <div className='form-group-info'>
           <label htmlFor="prenom">Prénom :</label>
           <input
             type="text"
@@ -64,7 +64,7 @@ const PharmacyInfo = () => {
         </div>
 
         {/* Champ pour l'email */}
-        <div>
+        <div className='form-group-info'>
           <label htmlFor="email">Email :</label>
           <input
             type="email"
@@ -76,7 +76,7 @@ const PharmacyInfo = () => {
         </div>
 
         {/* Champ pour le téléphone */}
-        <div>
+        <div className='form-group-info'>
           <label htmlFor="telephone">Téléphone :</label>
           <input
             type="tel"
@@ -88,7 +88,7 @@ const PharmacyInfo = () => {
         </div>
 
         {/* Champ select pour le statut */}
-        <div>
+        <div className='form-group-info'>
           <label htmlFor="role">Statut :</label>
           <input
             type="text"
@@ -111,7 +111,7 @@ const PharmacyInfo = () => {
   />
 </div>
 
-<div>
+<div className='form-group-info'>
   <label htmlFor="latitude">Latitude :</label>
   <input
     type="text"

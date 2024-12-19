@@ -24,9 +24,10 @@
 
     const changerPharmacieStatus = async (id) => {
   try {
-    const response = await fetch(`http://localhost:8080/pharmacie__API/api/admin/pharmacie/${id}/changer`, 
+     await fetch(`http://localhost:8080/pharmacie__API/api/admin/pharmacie/${id}/changer`, 
     { method: "PUT" });
     console.log(`Statut de la pharmacie avec ID ${id} modifié.`);
+    fetchPharmacies();
   } catch (error) {
     console.error('Erreur lors du changement du statut de la pharmacie:', error);
   }

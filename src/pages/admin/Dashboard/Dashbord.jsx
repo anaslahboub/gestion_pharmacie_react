@@ -65,7 +65,7 @@ const AdminDashboard = () => {
       {/* Statistiques globales */}
       <div className="dashboard-summary">
         <div className="summary-card">
-          <h2>Total Utilisateurs</h2>
+          <h2>Total Patients</h2>
           <p>{userCount}</p>
         </div>
         <div className="summary-card">
@@ -94,8 +94,8 @@ const AdminDashboard = () => {
       <div className="global-view">
         <h2>Vue Globale de l'Application</h2>
         <p>
-          L'application compte actuellement <strong>{userCount}</strong> utilisateurs enregistrés et{' '}
-          <strong>{pharmacyCount}</strong> pharmacies. De plus, il y a <strong>{partnerPharmacies}</strong>{' '}
+          L'application compte actuellement <strong>{userCount + pharmacyCount }</strong> utilisateurs enregistrés dont {' '}
+          <strong>{pharmacyCount}</strong> sont des pharmacies et <strong>{userCount} </strong> sont des  . De plus, il y a <strong>{partnerPharmacies}</strong>{' '}
           pharmacies partenaires et <strong>{nonPartnerPharmacies}</strong> pharmacies non partenaires.
         </p>
       </div>

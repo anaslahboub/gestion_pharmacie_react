@@ -127,7 +127,7 @@ const Profile = () => {
                   className="form-input"
                   name="contact"
                   placeholder="Contact"
-                  type="text"
+                  type="number"
                   value={formData.telephone || ''}
                   onChange={handleChange}
                 />
@@ -182,7 +182,7 @@ const Profile = () => {
                   name="adresse"
                   placeholder="Adresse"
                   type="text"
-                  value={formData.adresse || ''}
+                  value={formData.adresse}
                   onChange={handleChange}
                 />
               </div>

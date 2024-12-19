@@ -1,97 +1,121 @@
-/* Style global pour la page de modification */
-.pharmacy-info h2 {
+/* Conteneur principal */
+.info-countainer {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de la page */
+.info-countainer h2 {
     text-align: center;
-    color: #2c3e50;
-    font-size: 24px;
+    color: #333;
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
-/* Conteneur principal du formulaire */
-.pharmacy-info form {
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Formulaire */
+.form-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Chaque champ du formulaire */
-.pharmacy-info div {
-    margin-bottom: 15px;
+/* Groupes de champs de formulaire */
+.form-group-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* Labels */
-.pharmacy-info label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #34495e;
+.form-info label {
+    font-size: 16px;
+    color: #666;
 }
 
 /* Champs de saisie */
-.pharmacy-info input[type="text"],
-.pharmacy-info select {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
+.form-info input[type="text"],
+.form-info input[type="email"],
+.form-info input[type="tel"],
+.form-info select {
+    padding: 12px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: #f7f7f7;
+    transition: all 0.3s ease;
 }
 
-.pharmacy-info input[type="text"]:focus,
-.pharmacy-info select:focus {
-    border-color: #2ecc71;
+/* Champs de saisie au focus */
+.form-info input[type="text"]:focus,
+.form-info input[type="email"]:focus,
+.form-info input[type="tel"]:focus,
+.form-info select:focus {
+    border-color: #3498db;
+    background-color: #fff;
     outline: none;
 }
 
-/* Bouton de soumission */
-.pharmacy-info button {
-    width: 100%;
-    padding: 10px;
-    background-color: #2ecc71;
-    color: white;
+/* Boutons */
+button {
+    padding: 12px 20px;
     font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+    width: auto;
+    margin-top: 20px;
+    align-self: center;
 }
 
-.pharmacy-info button:hover {
-    background-color: #27ae60;
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Bouton de retour */
+button[type="button"] {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+button[type="button"]:hover {
+    background-color: #c0392b;
 }
 
 /* Message d'erreur ou de succès */
-.pharmacy-info .alert {
-    padding: 15px;
+.alert {
     margin-top: 20px;
-    background-color: #f44336;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 16px;
     text-align: center;
 }
 
-.pharmacy-info .success {
-    background-color: #4CAF50;
+.alert.success {
+    background-color: #2ecc71;
+    color: white;
 }
 
-.pharmacy-info .error {
-    background-color: #f44336;
+.alert.error {
+    background-color: #e74c3c;
+    color: white;
 }
 
 /* Style du lien "Retour" */
-.pharmacy-info .back-link {
-    display: inline-block;
+.back-link {
+    text-align: center;
     margin-top: 20px;
-    text-decoration: none;
-    color: #2c3e50;
     font-size: 16px;
+    text-decoration: none;
+    color: #3498db;
 }
 
-.pharmacy-info .back-link:hover {
+.back-link:hover {
     text-decoration: underline;
 }

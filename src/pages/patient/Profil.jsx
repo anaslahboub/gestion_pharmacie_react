@@ -50,7 +50,7 @@ const Profil = () => {
     }
 
     axios
-      .post(`http://localhost:8080/pharmacie__API/api/patient/profilUpdate?patientId=${patientId}`, formData)
+      .put(`http://localhost:8080/pharmacie__API/api/patient/profilUpdate?patientId=${patientId}`, formData)
       .then(() => {
         alert("Profil mis à jour avec succès !");
         setError(""); // Réinitialiser les erreurs

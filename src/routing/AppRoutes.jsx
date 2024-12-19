@@ -3,11 +3,23 @@ import { Routes, Route } from 'react-router-dom';
 
 // Layouts
 import PatientLayout from '../layouts/PatientLayout';
-//import AdminLayout from '../layouts/AdminLayout';
 import PharmacieLayout from '../layouts/PharmacieLayout';
-//import admin routes;
-//import AdminDashboard from '../pages/admin/Dashboard';
 import AdminLayout from'../layouts/AdminLayout';
+
+
+//page globales 
+import CreatePharmacie from '../pages/pharmacie/Register_PHA'
+import Login from '../pages/Login';
+import CreateAccount from '../pages/patient/CreateAccount'
+import Accueil from '../pages/accueil';
+
+
+
+
+
+
+
+//pages admin
 import AdminDashboard from '../pages/admin/Dashboard/Dashbord';
 import Pharmaciemanagement from '../pages/admin/PharmaciesManagement/PharmaciesManagement';
 import PharmacyInfo from '../pages/admin/PharmacyInfo/PharmacyInfo';
@@ -20,8 +32,6 @@ import AjouterPharmacie from '../pages/admin/ajouterpharmacie/Ajouterpharmacie';
 
 // Pages spécifiques pour chaque utilisateur
 import PharmacieDashboard from '../pages/pharmacie/dashbord_PHA';
-import Login from '../pages/Login';
-import Accueil from '../pages/accueil';
 import Commande from '../pages/pharmacie/commande_PHA';
 import AddPharmacy from '../pages/pharmacie/addPharmacy';
 import DetailOrdonnance from '../pages/pharmacie/detailOrdannace';
@@ -41,7 +51,6 @@ import Support from '../pages/patient/Support'
 import PharmaciesProches from '../pages/patient/PharmaciesProches'
 import DetailsOrdonnance from '../pages/patient/DetailsOrdonnance'
 import DetailsCommande from '../pages/patient/DetailsCommande'
-import CreateAccount from '../pages/patient/CreateAccount'
 
 const AppRoutes = () => {
    
@@ -56,6 +65,7 @@ const AppRoutes = () => {
             <Route path="/:role/login" element={<Login />} />
              {/* Routes Pour creer un compte */}
             <Route path="/patient/CreateAccount" element={<CreateAccount />} />
+            <Route path="/pharmacien/CreateAccount" element={<CreatePharmacie />} />
             
             {/* Espace Patient */}
             <Route path="/patient/Dashboard" element={<PatientLayout />}>
@@ -89,23 +99,19 @@ const AppRoutes = () => {
             
             {/* Espace Admin */}
             <Route path="/admin" element={<AdminLayout />}>
-  <Route index element={<AdminDashboard />} />
-  <Route path="dashboard" element={<AdminDashboard />} /> {/* Route spécifique */}
-  <Route path="pharmaciesManagement" element={<Pharmaciemanagement />} />
-  <Route path="pharmacyInfo/:id" element={<PharmacyInfo />} />
-  <Route path="PharmaciesPartenaires" element={<PharmaciesPartenaires />} />
-  <Route path="UsersManagement" element={<UsersManagement />} />
-  <Route path="editusers/:id" element={<EditUsers />} />
-  <Route path="ajouterpharmacie" element={<AjouterPharmacie />} />
-
-
-</Route>
-            {/* <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<AdminDashboard />} />
-            </Route> */}
+                <Route path="dashboard" element={<AdminDashboard />} /> {/* Route spécifique */}
+                <Route path="pharmaciesManagement" element={<Pharmaciemanagement />} />
+                <Route path="pharmacyInfo/:id" element={<PharmacyInfo />} />
+                <Route path="PharmaciesPartenaires" element={<PharmaciesPartenaires />} />
+                <Route path="UsersManagement" element={<UsersManagement />} />
+                <Route path="editusers/:id" element={<EditUsers />} />
+                <Route path="ajouterpharmacie" element={<AjouterPharmacie />} />
+            </Route>
 
-            {/* Espace Pharmacien */}
-           {/* Layout Pharmacie */}
+
+            
+             {/**espace pharmacie */}
           <Route path="/pharmacie" element={<PharmacieLayout />}>
               {/* Dashboard Pharmacie */}
               <Route index element={<PharmacieDashboard />} />
