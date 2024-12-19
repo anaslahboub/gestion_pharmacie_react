@@ -106,7 +106,7 @@ const PharmaciesProches = () => {
     markersRef.current.forEach(({ marker, pharmacy }) => {
       const matchesName = pharmacy.localistion.nomMap.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesStatus =
-        !statusFilter || (statusFilter === "active" && pharmacy.isActive) || (statusFilter === "inactive" && !pharmacy.isActive);
+        !statusFilter || (statusFilter === "active" && pharmacy.isActive) || (statusFilter === "non active" && !pharmacy.isActive);
       const matchesDistance = !distanceFilter ||  calculateDistance(pharmacy.localistion.latitude, pharmacy.longitude, localisation.latitude, localisation.longitude).toFixed(2) <= parseInt(distanceFilter, 10);
 
       if (matchesName && matchesStatus && matchesDistance) {
